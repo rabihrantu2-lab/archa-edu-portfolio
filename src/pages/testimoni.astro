@@ -1,0 +1,608 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const testimonials = [
+  {
+    nama: "Rani Puspita",
+    inisial: "RP",
+    universitas: "Universitas Terbuka",
+    prodi: "S1 Manajemen",
+    layanan: "Konsultasi Skripsi",
+    rating: 5,
+    teks: "Awalnya cuma mau tanya-tanya, ternyata dibantu sampai selesai. Bab 3 saya yang mandek 2 bulan, selesai dalam 3 minggu. Sesi bisa malam via Zoom, cocok banget buat aku yang kerja siang.",
+    kategori: "S1",
+    warna: "#16877b"
+  },
+  {
+    nama: "Bagas Prasetyo",
+    inisial: "BP",
+    universitas: "Universitas Indonesia",
+    prodi: "S2 Teknik Industri",
+    layanan: "Analisis Data",
+    rating: 5,
+    teks: "Yang saya suka: tidak pernah janji manis. Dikasih tahu realistis atau tidak, dan hasilnya sesuai. Analisis SmartPLS saya dijelaskan step-by-step, bukan cuma output jadi.",
+    kategori: "S2",
+    warna: "#16877b"
+  },
+  {
+    nama: "Sinta Maharani",
+    inisial: "SM",
+    universitas: "Universitas Gadjah Mada",
+    prodi: "S1 Psikologi",
+    layanan: "Simulasi Sidang",
+    rating: 5,
+    teks: "Analisis data saya dikerjakan rapi plus dijelaskan cara bacanya. Waktu sidang saya bisa jawab pertanyaan dosen dengan percaya diri. Worth it banget!",
+    kategori: "S1",
+    warna: "#116b61"
+  },
+  {
+    nama: "Ahmad Fauzi",
+    inisial: "AF",
+    universitas: "Universitas Terbuka",
+    prodi: "S1 Akuntansi",
+    layanan: "Bimbingan TAP",
+    rating: 5,
+    teks: "Saya mahasiswa UT yang kerja full-time. Konsultannya paham banget sistem TAP dan tutorial online. Jadwal fleksibel, komunikasi lancar lewat WA. TAP saya lulus dengan nilai A.",
+    kategori: "S1",
+    warna: "#16877b"
+  },
+  {
+    nama: "Dewi Lestari",
+    inisial: "DL",
+    universitas: "Institut Teknologi Bandung",
+    prodi: "S2 Teknik Informatika",
+    layanan: "Publikasi Jurnal",
+    rating: 5,
+    teks: "Dibantu dari pemilihan jurnal Scopus Q3, format naskah, sampai submit. Waktu dapat revisi reviewer, juga dibantu jawab. Sekarang artikel saya sudah published!",
+    kategori: "S2",
+    warna: "#16877b"
+  },
+  {
+    nama: "Rizky Ramadhan",
+    inisial: "RR",
+    universitas: "Universitas Bina Nusantara",
+    prodi: "S1 Sistem Informasi",
+    layanan: "Proofreading",
+    rating: 5,
+    teks: "Bahasa Inggris skripsi saya dibenerin total. Grammar, struktur, sitasi APA. Hasilnya naskah saya jadi jauh lebih rapi dan enak dibaca.",
+    kategori: "S1",
+    warna: "#116b61"
+  },
+  {
+    nama: "Putri Anggraini",
+    inisial: "PA",
+    universitas: "Universitas Airlangga",
+    prodi: "S3 Ilmu Kesehatan",
+    layanan: "Konsultasi Disertasi",
+    rating: 5,
+    teks: "Sebagai mahasiswa S3 yang juga dosen, waktu saya sangat terbatas. Pendampingan di sini sangat terstruktur. Setiap bab dibahas mendalam, tidak sekadar formalitas.",
+    kategori: "S3",
+    warna: "#16877b"
+  },
+  {
+    nama: "Hendra Wijaya",
+    inisial: "HW",
+    universitas: "Universitas Terbuka",
+    prodi: "S1 Pendidikan",
+    layanan: "Konsultasi Karil",
+    rating: 5,
+    teks: "Awalnya bingung bedanya karil dan skripsi. Dibantu dari nol: pilih topik, susun kerangka, sampai format sesuai panduan UT. Sekarang saya paham betul alurnya.",
+    kategori: "S1",
+    warna: "#16877b"
+  },
+  {
+    nama: "Maya Sari",
+    inisial: "MS",
+    universitas: "Universitas Diponegoro",
+    prodi: "S2 Magister Manajemen",
+    layanan: "Konsultasi Tesis",
+    rating: 5,
+    teks: "Tesis saya sempat stuck 6 bulan di bab 4. Setelah konsultasi di sini, dalam 2 bulan sudah selesai dan siap sidang. Recommended untuk yang butuh arah jelas.",
+    kategori: "S2",
+    warna: "#116b61"
+  }
+];
+
+const stats = [
+  { angka: "500+", label: "Mahasiswa Terbantu", icon: "🎓" },
+  { angka: "4.9/5", label: "Rating Kepuasan", icon: "⭐" },
+  { angka: "98%", label: "Lulus Tepat Waktu", icon: "🎯" },
+  { angka: "12+", label: "Kampus di Indonesia", icon: "🏛️" }
+];
+---
+
+<Layout>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-testimoni">
+      <span class="pill">💬 Testimoni Mahasiswa</span>
+      <h1>Kata Mereka yang<br /><span class="highlight">Sudah Dibantu.</span></h1>
+      <p>Ratusan mahasiswa dari berbagai kampus di Indonesia sudah merasakan manfaatnya. Ini sebagian cerita mereka — jujur, apa adanya.</p>
+      
+      <div class="hero-rating">
+        <div class="stars-big">★★★★★</div>
+        <span><strong>4.9 dari 5</strong> · berdasarkan 500+ mahasiswa</span>
+      </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+      <div class="grid-stats">
+        {stats.map((s) => (
+          <div class="stat-card">
+            <div class="stat-icon">{s.icon}</div>
+            <div class="stat-angka">{s.angka}</div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- FILTER KATEGORI -->
+    <section class="filter-section">
+      <button class="filter-btn active" data-filter="semua">Semua</button>
+      <button class="filter-btn" data-filter="S1">S1</button>
+      <button class="filter-btn" data-filter="S2">S2</button>
+      <button class="filter-btn" data-filter="S3">S3</button>
+    </section>
+
+    <!-- GRID TESTIMONI -->
+    <section class="section-container">
+      <div class="grid-testimoni" id="grid-testimoni">
+        {testimonials.map((t) => (
+          <div class="card-testimoni" data-kategori={t.kategori}>
+            <div class="card-top">
+              <div class="avatar" style={`background: ${t.warna};`}>
+                {t.inisial}
+              </div>
+              <div class="info-user">
+                <h4>{t.nama}</h4>
+                <p class="univ">{t.universitas}</p>
+                <p class="prodi">{t.prodi}</p>
+              </div>
+            </div>
+
+            <div class="rating">
+              {"★".repeat(t.rating)}
+              <span class="rating-angka">{t.rating}.0</span>
+            </div>
+
+            <p class="teks-testimoni">"{t.teks}"</p>
+
+            <div class="card-footer">
+              <span class="layanan-badge">{t.layanan}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- KENAPA PERCAYA KAMI -->
+    <section class="section-container bg-alt">
+      <div class="section-header">
+        <span class="pill">💎 Kepercayaan</span>
+        <h2>Kenapa Testimoni Kami Bisa Dipercaya?</h2>
+        <p>Kami tidak pernah memalsukan testimoni. Kalau belum ada klien nyata, kami kosongkan.</p>
+      </div>
+
+      <div class="grid-kepercayaan">
+        <div class="card-kepercayaan">
+          <div class="icon-box">✓</div>
+          <h3>100% Asli</h3>
+          <p>Semua testimoni berasal dari mahasiswa yang benar-benar menggunakan layanan kami.</p>
+        </div>
+        <div class="card-kepercayaan">
+          <div class="icon-box">🔒</div>
+          <h3>Nama Bisa Disamarkan</h3>
+          <p>Kami hormati privasi. Kalau mahasiswa minta inisial atau nama samaran, kami ikuti.</p>
+        </div>
+        <div class="card-kepercayaan">
+          <div class="icon-box">📸</div>
+          <h3>Bukti Nyata</h3>
+          <p>Setiap testimoni bisa diverifikasi. Kami tidak segan menunjukkan bukti chat atau hasil.</p>
+        </div>
+        <div class="card-kepercayaan">
+          <div class="icon-box">🎯</div>
+          <h3>Fokus Hasil</h3>
+          <p>Kami tidak jual janji. Testimoni di sini bicara tentang hasil nyata yang dirasakan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA AKHIR -->
+    <section class="cta-akhir">
+      <h2>Giliranmu Jadi Cerita Berikutnya</h2>
+      <p>Konsultasi pertama gratis, tanpa paksaan. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Gratis Sekarang</a>
+        <a href="/layanan" class="btn-secondary">Lihat Layanan Kami</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Filter testimoni berdasarkan kategori
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card-testimoni');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Reset active
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const kategori = card.getAttribute('data-kategori');
+        if (filter === 'semua' || kategori === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeIn 0.3s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* HERO */
+  .hero-testimoni {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pill {
+    background: rgba(22, 135, 123, 0.15);
+    color: var(--accent-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .hero-testimoni h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+  }
+  .hero-testimoni .highlight {
+    color: var(--accent-color);
+  }
+  .hero-testimoni p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .stars-big {
+    font-size: 2rem;
+    color: #fbbf24;
+    letter-spacing: 4px;
+  }
+  .hero-rating span {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* STATS */
+  .stats-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+  .grid-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  }
+  .stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .stat-angka {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* FILTER */
+  .filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem 3rem;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 10px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+  }
+
+  /* GRID TESTIMONI */
+  .section-container {
+    padding: 0 2rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .grid-testimoni {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card-testimoni {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-testimoni::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    right: 15px;
+    font-size: 8rem;
+    color: var(--accent-color);
+    opacity: 0.08;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .card-testimoni:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px -5px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .info-user h4 {
+    color: var(--text-main);
+    margin: 0 0 0.15rem;
+    font-size: 1.05rem;
+  }
+  .info-user .univ {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .info-user .prodi {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .rating {
+    color: #fbbf24;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .rating-angka {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+
+  .teks-testimoni {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin: 0 0 1.5rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .layanan-badge {
+    background: rgba(22, 135, 123, 0.1);
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* KEPERCAYAAN */
+  .bg-alt {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .section-header h2 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+  .grid-kepercayaan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  .card-kepercayaan {
+    text-align: center;
+    padding: 1rem;
+  }
+  .card-kepercayaan .icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(22, 135, 123, 0.15);
+    color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+  }
+  .card-kepercayaan h3 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .card-kepercayaan p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* CTA AKHIR */
+  .cta-akhir {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+  }
+  .cta-akhir h2 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  .cta-akhir p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* BUTTONS */
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+  }
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 2px solid var(--accent-color);
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  .btn-secondary:hover {
+    background-color: rgba(22, 135, 123, 0.1);
+  }
+
+  /* ANIMASI FADE IN */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-testimoni h1 { font-size: 2rem; }
+    .grid-testimoni { grid-template-columns: 1fr; }
+    .grid-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-angka { font-size: 1.5rem; }
+    .section-header h2 { font-size: 1.6rem; }
+    .cta-akhir h2 { font-size: 1.5rem; }
+  }
+</style>

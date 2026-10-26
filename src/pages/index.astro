@@ -1,0 +1,283 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Archa Edu Academy - Bimbingan Skripsi & Tesis Terpercaya";
+const description = "Bimbingan skripsi & tesis dari penentuan judul sampai sidang. Konsultan berpengalaman, harga transparan, konsultasi pertama gratis.";
+
+const fitur = [
+  { nama: "Konsultasi Skripsi & Tesis", desc: "Pendampingan menyeluruh dari judul sampai sidang. Dibimbing konsultan yang paham alur kampus.", badge: "POPULER" },
+  { nama: "Bimbingan Tugas Akhir", desc: "Arahan intensif di bab tertentu (1, 3, atau 4). Fokus, tidak bertele-tele." },
+  { nama: "Analisis Data", desc: "SPSS, R, Python, SmartPLS, Excel. Hasil interpretasi jelas, bukan cuma angka." },
+  { nama: "Proofreading & Editing", desc: "Perbaiki tata bahasa, ejaan, format sitasi, dan konsistensi penulisan." },
+  { nama: "Publikasi Jurnal", desc: "Bantu pilih jurnal, format naskah, submit, sampai revisi reviewer." },
+  { nama: "Konsultasi Beasiswa", desc: "Persiapkan esai, CV, dan strategi aplikasi beasiswa dalam & luar negeri." }
+];
+
+const alur = [
+  { no: "01", title: "Konsultasi Gratis", desc: "Ceritakan kondisimu via WhatsApp atau form. Kami dengar dulu, bukan langsung jualan." },
+  { no: "02", title: "Pilih Paket", desc: "Kami rekomendasikan paket paling sesuai. Kamu yang putuskan, tanpa paksaan." },
+  { no: "03", title: "Proses Pendampingan", desc: "Jadwal teratur, progres bisa dipantau, komunikasi lancar via WhatsApp atau Zoom." },
+  { no: "04", title: "Selesai & Siap Sidang", desc: "Kamu dapat hasil akhir, garansi revisi, dan dukungan sampai benar-benar selesai." }
+];
+
+const harga = [
+  { nama: "Basic", harga: "Rp 500.000", periode: "/paket", fitur: ["Konsultasi awal gratis", "Bimbingan 2 sesi", "Review 1 bab", "Template & panduan"] },
+  { nama: "Reguler", harga: "Rp 2.500.000", periode: "/paket", fitur: ["Semua fitur Basic", "Bimbingan 1-on-1 rutin", "Review semua bab", "Simulasi sidang", "Garansi revisi"], populer: true },
+  { nama: "Premium", harga: "Rp 4.500.000", periode: "/paket", fitur: ["Semua fitur Reguler", "Prioritas jadwal konsultan", "Simulasi sidang intensif", "Bantuan publikasi jurnal", "Pendampingan sampai lulus"] }
+];
+
+const testimoni = [
+  { teks: "Awalnya cuma mau tanya-tanya, ternyata dibantu sampai selesai. Bab 3 saya yang mandek 2 bulan, selesai dalam 3 minggu.", nama: "Rani", detail: "S1 Manajemen" },
+  { teks: "Yang saya suka: tidak pernah janji manis. Dikasih tahu realistis atau tidak, dan hasilnya sesuai.", nama: "Bagas", detail: "S2 Teknik Industri" },
+  { teks: "Analisis data saya dikerjakan rapi plus dijelaskan cara bacanya. Waktu sidang saya bisa jawab pertanyaan dosen.", nama: "Sinta", detail: "S1 Psikologi" }
+];
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="eyebrow"><span></span> PARTNER PERJALANAN AKADEMIKMU</span>
+        <h1>Langkah lebih jelas.<br /><span class="highlight">Kuliah lebih terarah.</span></h1>
+        <p>Pendampingan 1-on-1 untuk skripsi, tesis, analisis data, dan publikasi jurnal. Konsultasi pertama gratis, harga jelas di depan, tidak ada biaya tersembunyi.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Gratis via WA &rarr;</a>
+          <a href="/layanan" class="btn-secondary">Lihat Layanan</a>
+        </div>
+        <div class="trust-bar">
+          <span>✓ Pendampingan 1-on-1</span>
+          <span>✓ Harga transparan</span>
+        </div>
+      </div>
+      <div class="hero-image" aria-label="Gambaran tahapan pendampingan akademik">
+        <div class="academic-board">
+          <div class="board-top"><span>ARCHA / STUDY COMPANION</span><span class="board-dot"></span></div>
+          <div class="board-heading"><span class="board-kicker">Satu langkah dalam satu waktu</span><h2>Ide besarmu,<br /><em>kita arahkan bersama.</em></h2></div>
+          <div class="study-sheet">
+            <div class="sheet-title"><span>Rencana perjalanan akademik</span><span aria-hidden="true">↗</span></div>
+            <div class="sheet-row"><span class="sheet-number">01</span><div><strong>Temukan arah penelitian</strong><small>Topik, rumusan masalah, dan referensi</small></div><span class="sheet-check">✓</span></div>
+            <div class="sheet-row"><span class="sheet-number">02</span><div><strong>Susun & pahami prosesnya</strong><small>Metode, analisis data, dan penulisan</small></div><span class="sheet-check">✓</span></div>
+            <div class="sheet-row"><span class="sheet-number">03</span><div><strong>Siapkan langkah berikutnya</strong><small>Review, revisi, dan persiapan sidang</small></div><span class="sheet-arrow">→</span></div>
+          </div>
+          <div class="board-bottom"><span class="companion-symbol" aria-hidden="true">✳</span><span>Bukan sekadar selesai.<br /><strong>Lebih paham, lebih percaya diri.</strong></span></div>
+        </div>
+        <span class="board-caption">SKRIPSI · TESIS · ANALISIS DATA · PUBLIKASI</span>
+      </div>
+    </section>
+
+    <!-- MASALAH SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <span class="pill">Kenali Masalahmu</span>
+        <h2>Kalau Kamu Mengalami Ini, Kamu Tidak Sendirian</h2>
+      </div>
+      <div class="masalah-grid">
+        <div class="masalah-item">Sudah 3 bulan tapi judul masih belum acc</div>
+        <div class="masalah-item">Data sudah terkumpul, bingung mau diolah pakai apa</div>
+        <div class="masalah-item">Dosen pembimbing sibuk, susah diajak diskusi</div>
+        <div class="masalah-item">Revisi terus tapi tidak tahu salahnya di mana</div>
+        <div class="masalah-item">Deadline sidang makin dekat, progres masih 30%</div>
+        <div class="masalah-item">Butuh publikasi jurnal tapi tidak paham alurnya</div>
+      </div>
+      <p class="masalah-penutup">Kami ada untuk membantu kamu melewati bagian-bagian yang paling membingungkan.</p>
+    </section>
+
+    <!-- FITUR SECTION -->
+    <section class="section-container bg-alt">
+      <div class="section-header">
+        <span class="pill">Layanan Kami</span>
+        <h2>Pilih Sesuai Kebutuhanmu</h2>
+        <p>Semua dimulai dengan konsultasi gratis. Tanpa paksaan.</p>
+      </div>
+      <div class="grid-fitur">
+        {fitur.map((item, index) => (
+          <div class="card-fitur">
+            <span class="service-number">{String(index + 1).padStart(2, "0")} /</span>
+            {item.badge && <span class="badge">{item.badge}</span>}
+            <h3>{item.nama}</h3>
+            <p>{item.desc}</p>
+            <a href="/layanan" class="link-detail">Lihat Detail &rarr;</a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ALUR KERJA SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <span class="pill">Cara Kerja</span>
+        <h2>4 Langkah, Tanpa Ribet</h2>
+        <p>Kamu fokus pada ide. Kami yang dampingi prosesnya.</p>
+      </div>
+      <div class="grid-alur">
+        {alur.map((item) => (
+          <div class="card-alur">
+            <span class="nomor">{item.no}</span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- HARGA SECTION -->
+    <section class="section-container bg-alt">
+      <div class="section-header">
+        <span class="pill">Harga</span>
+        <h2>Investasi untuk Masa Depanmu</h2>
+        <p>Harga transparan. DP 50%, sisanya setelah selesai.</p>
+      </div>
+      <div class="grid-harga">
+        {harga.map((item) => (
+          <div class={`card-harga ${item.populer ? 'populer' : ''}`}>
+            {item.populer && <span class="label-populer">★ Paling Populer</span>}
+            <h3>{item.nama}</h3>
+            <div class="harga-nominal">{item.harga} <span>{item.periode}</span></div>
+            <ul>
+              {item.fitur.map((f) => <li>✓ {f}</li>)}
+            </ul>
+            <a href={`https://wa.me/62895323665266?text=Halo,%20saya%20tertarik%20paket%20${item.nama}`} class="btn-harga" target="_blank">Pilih Paket</a>
+          </div>
+        ))}
+      </div>
+      <p class="catatan-harga">*Harga dapat berubah sesuai tingkat kesulitan dan deadline. <a href="/harga">Lihat detail lengkap &rarr;</a></p>
+    </section>
+
+    <!-- TESTIMONI SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <span class="pill">Testimoni</span>
+        <h2>Kata Mereka yang Sudah Dibantu</h2>
+      </div>
+      <div class="grid-testimoni">
+        {testimoni.map((t) => (
+          <div class="card-testimoni">
+            <div class="stars-small">★★★★★</div>
+            <p>"{t.teks}"</p>
+            <div class="testimoni-author">
+              <strong>{t.nama}</strong>
+              <span>{t.detail}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA AKHIR -->
+    <section class="cta-akhir">
+      <h2>Masih Bingung Mulai dari Mana?</h2>
+      <p>Konsultasi pertama gratis. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Chat WhatsApp Sekarang</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* HERO */
+  .hero { display: flex; align-items: center; justify-content: space-between; padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; gap: 3rem; flex-wrap: wrap; }
+  .hero-text { flex: 1; min-width: 300px; }
+  .hero-text h1 { font-size: 3rem; line-height: 1.1; color: var(--text-main); margin-bottom: 1.5rem; }
+  .hero-text .highlight { color: var(--accent-color); }
+  .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.7; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .trust-bar { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+  
+  .btn-primary { background-color: var(--accent-color); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+  .btn-secondary { background-color: transparent; color: var(--accent-color); padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; border: 2px solid var(--accent-color); display: inline-block; transition: background 0.3s; }
+  .btn-secondary:hover { background-color: rgba(22, 135, 123, 0.1); }
+
+  /* HERO CARD STACK */
+  .hero-image { flex: 1; min-width: 300px; }
+  .hero-card-stack { position: relative; min-height: 400px; display: flex; flex-direction: column; gap: 1.5rem; }
+  .hero-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .hero-card:hover { transform: translateY(-5px); }
+  .card-judul { background: linear-gradient(135deg, var(--accent-color), var(--accent-hover)); color: white; border: none; }
+  .card-judul h4 { color: white; margin: 0.5rem 0; font-size: 1.3rem; }
+  .card-judul p { color: rgba(255,255,255,0.9); margin: 0; font-size: 0.9rem; }
+  .card-icon { font-size: 2rem; }
+  .card-progress { margin-left: 2rem; }
+  .progress-header { display: flex; justify-content: space-between; font-weight: bold; color: var(--text-main); margin-bottom: 0.75rem; font-size: 0.95rem; }
+  .progress-badge { background: var(--accent-color); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; }
+  .progress-bar { height: 10px; background: var(--border-color); border-radius: 10px; overflow: hidden; margin-bottom: 0.75rem; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent-color), var(--accent-hover)); border-radius: 10px; }
+  .progress-note { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+  .card-rating { margin-left: 1rem; text-align: center; }
+  .stars { color: #fbbf24; font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .card-rating p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+  .card-rating strong { color: var(--text-main); }
+
+  /* SECTIONS */
+  .section-container { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .bg-alt { background-color: var(--card-bg); border-radius: 16px; margin: 2rem auto; max-width: 1200px; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { font-size: 2rem; color: var(--text-main); margin-bottom: 0.5rem; }
+  .section-header p { color: var(--text-muted); }
+  .pill { background-color: var(--accent-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block; margin-bottom: 1rem; }
+
+  /* MASALAH */
+  .masalah-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .masalah-item { background: var(--card-bg); padding: 1rem 1.25rem; border-left: 4px solid var(--accent-color); border-radius: 8px; color: var(--text-muted); font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+  .masalah-penutup { text-align: center; color: var(--text-muted); font-style: italic; }
+
+  /* FITUR */
+  .grid-fitur { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .card-fitur { background: var(--bg-color); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .card-fitur:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+  .card-fitur h3 { color: var(--text-main); margin-top: 0; margin-bottom: 1rem; }
+  .card-fitur p { color: var(--text-muted); line-height: 1.6; margin: 0 0 1rem; }
+  .badge { position: absolute; top: 1rem; right: 1rem; background: #ef4444; color: white; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+  .link-detail { color: var(--accent-color); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+  .link-detail:hover { color: var(--accent-hover); }
+
+  /* ALUR */
+  .grid-alur { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+  .card-alur { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
+  .card-alur .nomor { font-size: 2.5rem; font-weight: bold; color: var(--accent-color); opacity: 0.5; display: block; margin-bottom: 1rem; }
+  .card-alur h3 { color: var(--text-main); margin-top: 0; }
+  .card-alur p { color: var(--text-muted); line-height: 1.6; }
+
+  /* HARGA */
+  .grid-harga { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; align-items: start; }
+  .card-harga { background: var(--bg-color); border: 1px solid var(--border-color); padding: 2rem; border-radius: 16px; text-align: center; position: relative; }
+  .card-harga.populer { border: 2px solid var(--accent-color); transform: scale(1.05); box-shadow: 0 10px 30px -5px rgba(22, 135, 123, 0.3); }
+  .label-populer { background: var(--accent-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .card-harga h3 { color: var(--text-muted); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; }
+  .harga-nominal { font-size: 2rem; font-weight: bold; color: var(--text-main); margin-bottom: 1.5rem; }
+  .harga-nominal span { font-size: 0.9rem; font-weight: normal; color: var(--text-muted); }
+  .card-harga ul { list-style: none; padding: 0; text-align: left; margin-bottom: 2rem; }
+  .card-harga li { padding: 0.5rem 0; color: var(--text-muted); font-size: 0.95rem; border-bottom: 1px solid var(--border-color); }
+  .card-harga li:last-child { border-bottom: none; }
+  .btn-harga { display: block; width: 100%; padding: 12px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-sizing: border-box; transition: background 0.3s; }
+  .btn-harga:hover { background: var(--accent-hover); }
+  .catatan-harga { text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem; }
+  .catatan-harga a { color: var(--accent-color); font-weight: bold; }
+
+  /* TESTIMONI */
+  .grid-testimoni { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .card-testimoni { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
+  .stars-small { color: #fbbf24; font-size: 1.1rem; margin-bottom: 1rem; }
+  .card-testimoni p { color: var(--text-muted); line-height: 1.7; font-style: italic; margin: 0 0 1.5rem; }
+  .testimoni-author { border-top: 1px solid var(--border-color); padding-top: 1rem; }
+  .testimoni-author strong { color: var(--text-main); display: block; }
+  .testimoni-author span { color: var(--text-muted); font-size: 0.85rem; }
+
+  /* CTA */
+  .cta-akhir { text-align: center; padding: 5rem 2rem; background-color: var(--card-bg); border-top: 1px solid var(--border-color); }
+  .cta-akhir h2 { color: var(--text-main); margin-bottom: 1rem; }
+  .cta-akhir p { color: var(--text-muted); margin-bottom: 2rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; padding: 3rem 1rem; gap: 2rem; }
+    .hero-buttons { justify-content: center; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .trust-bar { justify-content: center; }
+    .hero-card-stack { min-height: auto; }
+    .card-progress, .card-rating { margin-left: 0; }
+    .card-harga.populer { transform: scale(1); }
+    .section-container { padding: 3rem 1rem; }
+    .section-header h2 { font-size: 1.6rem; }
+  }
+</style>

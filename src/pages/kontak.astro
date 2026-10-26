@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Hubungi Kami - Archa Edu Academy";
+const description = "Konsultasi gratis via WhatsApp. Balas maksimal 1x24 jam. Alamat, email, dan jam operasional.";
+
+const email = "Rabihrantu2@gmail.com";
+const waNomor = "62895323665266";
+const alamat = "Perumahan Bukit Sakinah Blok C18 No. 18, Desa Barengkok, Kec. Leuwiliang, Kab. Bogor";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-kontak">
+      <h1>Hubungi Kami</h1>
+      <p>Konsultasi awal gratis. Balas paling lambat 1x24 jam.</p>
+    </section>
+
+    <!-- GRID KONTAK: FORM + INFO -->
+    <section class="section-container">
+      <div class="grid-kontak">
+
+        <!-- FORM -->
+        <div class="form-box">
+          <h2>Kirim Pesan</h2>
+          <form id="form-kontak">
+            <div class="form-group">
+              <label for="nama">Nama *</label>
+              <input type="text" id="nama" required placeholder="Nama lengkapmu" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" required placeholder="nama@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="wa">No. WhatsApp *</label>
+              <input type="tel" id="wa" required placeholder="08xxxxxxxxxx" />
+            </div>
+            <div class="form-group">
+              <label for="layanan">Jenis Layanan *</label>
+              <select id="layanan" required>
+                <option value="">Pilih layanan...</option>
+                <option value="Konsultasi Skripsi & Tesis">Konsultasi Skripsi & Tesis</option>
+                <option value="Bimbingan Tugas Akhir">Bimbingan Tugas Akhir</option>
+                <option value="Analisis Data">Analisis Data</option>
+                <option value="Proofreading & Editing">Proofreading & Editing</option>
+                <option value="Publikasi Jurnal">Publikasi Jurnal</option>
+                <option value="Konsultasi Beasiswa">Konsultasi Beasiswa</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pesan">Pesan *</label>
+              <textarea id="pesan" rows="5" required placeholder="Ceritakan kebutuhanmu..."></textarea>
+            </div>
+            <button type="submit" class="btn-kirim">Kirim via WhatsApp</button>
+            <p class="form-note">*Wajib diisi. Pesanmu akan diteruskan ke WhatsApp kami.</p>
+          </form>
+        </div>
+
+        <!-- INFO KONTAK -->
+        <div class="info-box">
+          <h2>Informasi Kontak</h2>
+
+          <div class="info-item">
+            <div class="info-icon">💬</div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>0895-3236-65266</p>
+              <a href={`https://wa.me/${waNomor}`} target="_blank" class="link-kontak">Chat Sekarang →</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <h3>Email</h3>
+              <p><a href={`mailto:${email}`} class="link-kontak">{email}</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <h3>Alamat</h3>
+              <p>{alamat}</p>
+              <a href={`https://maps.google.com/?q=${encodeURIComponent(alamat)}`} target="_blank" class="link-kontak">Buka di Google Maps →</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div>
+              <h3>Jam Operasional</h3>
+              <p>Senin–Jumat: 09.00–18.00 WIB</p>
+              <p>Sabtu: 09.00–14.00 WIB</p>
+              <p>Minggu & Hari Libur: Tutup</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GOOGLE MAPS -->
+    <section class="section-container">
+      <div class="section-header">
+        <h2>Lokasi Kami</h2>
+        <p>Silakan kunjungi kantor kami atau hubungi via WhatsApp terlebih dahulu.</p>
+      </div>
+      <div class="maps-wrapper">
+        <iframe
+          src={`https://maps.google.com/maps?q=${encodeURIComponent("Perumahan Bukit Sakinah Leuwiliang Bogor")}&output=embed`}
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- CTA AKHIR -->
+    <section class="cta-akhir">
+      <h2>Masih Ada Pertanyaan?</h2>
+      <p>Tim kami siap membantu. Konsultasi pertama gratis, tanpa paksaan.</p>
+      <a href={`https://wa.me/${waNomor}`} class="btn-primary" target="_blank">Chat WhatsApp Sekarang</a>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const form = document.getElementById('form-kontak');
+  const waNomor = "62895323665266";
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value;
+    const email = document.getElementById('email').value;
+    const wa = document.getElementById('wa').value;
+    const layanan = document.getElementById('layanan').value;
+    const pesan = document.getElementById('pesan').value;
+
+    const text = `Halo Archa Edu Academy,%0A%0A` +
+                 `Nama: ${nama}%0A` +
+                 `Email: ${email}%0A` +
+                 `WhatsApp: ${wa}%0A` +
+                 `Layanan: ${layanan}%0A%0A` +
+                 `Pesan:%0A${pesan}`;
+
+    window.open(`https://wa.me/${waNomor}?text=${text}`, '_blank');
+  });
+</script>
+
+<style>
+  /* Hero */
+  .hero-kontak { text-align: center; padding: 5rem 2rem 3rem; max-width: 800px; margin: 0 auto; }
+  .hero-kontak h1 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 1rem; }
+  .hero-kontak p { font-size: 1.2rem; color: var(--text-muted); }
+
+  .section-container { padding: 3rem 2rem 5rem; max-width: 1200px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { font-size: 2rem; color: var(--text-main); margin-bottom: 0.5rem; }
+  .section-header p { color: var(--text-muted); }
+
+  /* Grid Kontak */
+  .grid-kontak { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+
+  /* Form */
+  .form-box { background: var(--card-bg); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border-color); }
+  .form-box h2 { color: var(--text-main); margin-top: 0; margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px; border: 1px solid var(--border-color);
+    border-radius: 8px; background: var(--bg-color); color: var(--text-main);
+    font-family: inherit; font-size: 0.95rem; box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--accent-color);
+  }
+  .btn-kirim {
+    width: 100%; padding: 14px; background: var(--accent-color); color: white;
+    border: none; border-radius: 8px; font-weight: bold; font-size: 1rem;
+    cursor: pointer; transition: background 0.3s;
+  }
+  .btn-kirim:hover { background: var(--accent-hover); }
+  .form-note { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; margin-bottom: 0; }
+
+  /* Info Box */
+  .info-box { background: var(--card-bg); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border-color); }
+  .info-box h2 { color: var(--text-main); margin-top: 0; margin-bottom: 1.5rem; }
+  .info-item { display: flex; gap: 1rem; margin-bottom: 1.8rem; }
+  .info-item:last-child { margin-bottom: 0; }
+  .info-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .info-item h3 { margin: 0 0 0.5rem; color: var(--text-main); font-size: 1rem; }
+  .info-item p { margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+  
+  .link-kontak { color: var(--accent-color); text-decoration: none; font-weight: bold; display: inline-block; margin-top: 0.5rem; }
+  .link-kontak:hover { text-decoration: underline; }
+
+  /* Maps */
+  .maps-wrapper { border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
+
+  /* CTA Akhir */
+  .cta-akhir { text-align: center; padding: 5rem 2rem; background-color: var(--card-bg); border-top: 1px solid var(--border-color); }
+  .cta-akhir h2 { color: var(--text-main); margin-bottom: 1rem; }
+  .cta-akhir p { color: var(--text-muted); margin-bottom: 2rem; }
+  .btn-primary { background-color: var(--accent-color); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .grid-kontak { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-kontak h1 { font-size: 1.8rem; }
+    .hero-kontak p { font-size: 1rem; }
+    .section-container { padding: 2rem 1rem 3rem; }
+    .form-box, .info-box { padding: 1.5rem; }
+    .cta-akhir { padding: 3rem 1rem; }
+    .cta-akhir h2 { font-size: 1.5rem; }
+  }
+</style>

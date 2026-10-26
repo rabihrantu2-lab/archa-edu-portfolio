@@ -1,0 +1,19 @@
+ARCHA EDU ACADEMY — PROYEK LENGKAP
+
+1. Ekstrak ZIP ini satu kali. Semua file proyek berada di folder Archa-Edu.
+2. Buka folder Archa-Edu di VS Code. Pastikan package.json terlihat di folder tersebut.
+3. Buka Terminal > New Terminal.
+4. Jalankan: npm ci
+5. Setelah selesai, jalankan: npm run dev
+6. Buka alamat lokal yang ditampilkan terminal untuk melihat website.
+7. Untuk menghasilkan website siap hosting, jalankan: npm run build
+   Hasilnya berada dalam folder dist.
+
+Persyaratan: Node.js sesuai package.json (>=22.12.0) dan koneksi internet saat npm ci.
+Folder node_modules dibuat otomatis oleh npm ci; tidak perlu disalin dari proyek lama.
+File .astro dibuka dengan editor seperti VS Code. Website dijalankan lewat npm run dev.
+
+Isi lengkap: seluruh src (layouts, components, pages, styles, data, assets), public, package.json, package-lock.json, astro.config.mjs, tsconfig.json, dan petunjuk proyek.
+Tidak perlu menggabungkan ZIP sebelumnya. Gunakan proyek dalam ZIP ini sebagai satu kesatuan.
+
+Build sebelumnya berhasil untuk 18 halaman. Tampilan visual masih perlu diperiksa di desktop dan HP. Paket ini tidak otomatis mengubah GitHub atau Netlify.

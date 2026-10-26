@@ -1,0 +1,259 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { artikelList, kategoriList } from '../data/artikel.js';
+
+const title = "Artikel & Panduan Skripsi - Archa Edu Academy";
+const description = "Tips, panduan, dan artikel seputar skripsi, tesis, analisis data, dan publikasi jurnal untuk mahasiswa Indonesia.";
+
+const featured = artikelList.find(a => a.unggulan) || artikelList[0];
+const others = artikelList.filter(a => a.slug !== featured.slug);
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-blog">
+      <span class="pill">📖 Blog Archa</span>
+      <h1>Tips, Panduan, & Cerita<br /><span class="highlight">Seputar Dunia Kampus.</span></h1>
+      <p>Dari cara cari judul skripsi sampai tips sidang tanpa grogi. Semua ditulis santai, mudah dipahami, dan relevan untuk mahasiswa Indonesia.</p>
+
+      <!-- SEARCH BAR -->
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Cari artikel... (misal: UT, sidang, SPSS)" 
+          autocomplete="off"
+        />
+      </div>
+    </section>
+
+    <!-- FEATURED ARTICLE -->
+    <section class="section-container">
+      <div class="featured-label">🔥 Artikel Unggulan</div>
+      <a href={`/blog/${featured.slug}`} class="featured-card">
+        <div class="featured-image" style={`background: linear-gradient(135deg, ${featured.warna} 0%, ${featured.warna}cc 100%);`}>
+          <span class="featured-emoji">{featured.gambar}</span>
+        </div>
+        <div class="featured-content">
+          <span class="kategori-tag">{featured.kategori}</span>
+          <h2>{featured.judul}</h2>
+          <p>{featured.ringkasan}</p>
+          <div class="article-meta">
+            <span>✍️ {featured.penulis}</span>
+            <span>•</span>
+            <span>📅 {new Date(featured.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+            <span>•</span>
+            <span>⏱ {featured.waktuBaca}</span>
+          </div>
+          <span class="btn-read">Baca Artikel &rarr;</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- FILTER KATEGORI -->
+    <section class="filter-section">
+      <div class="filter-scroll">
+        {kategoriList.map((kat, i) => (
+          <button 
+            class={`filter-btn ${i === 0 ? 'active' : ''}`} 
+            data-filter={kat}
+          >
+            {kat}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- GRID ARTIKEL -->
+    <section class="section-container">
+      <div class="grid-artikel" id="gridArtikel">
+        {others.map((artikel) => (
+          <a href={`/blog/${artikel.slug}`} class="card-artikel" data-kategori={artikel.kategori}>
+            <div class="card-image" style={`background: linear-gradient(135deg, ${artikel.warna} 0%, ${artikel.warna}cc 100%);`}>
+              <span class="card-emoji">{artikel.gambar}</span>
+            </div>
+            <div class="card-body">
+              <span class="kategori-tag">{artikel.kategori}</span>
+              <h3>{artikel.judul}</h3>
+              <p>{artikel.ringkasan}</p>
+              <div class="card-meta">
+                <span>📅 {new Date(artikel.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}</span>
+                <span>⏱ {artikel.waktuBaca}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- PESAN KOSONG -->
+      <div id="noResult" class="no-result" style="display: none;">
+        <div class="no-result-icon">🤔</div>
+        <h3>Belum ada artikel dengan kata kunci itu</h3>
+        <p>Coba kata kunci lain, atau lihat semua artikel kami.</p>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="newsletter-section">
+      <div class="newsletter-box">
+        <div class="newsletter-icon">📬</div>
+        <h2>Dapat Tips Skripsi Tiap Minggu</h2>
+        <p>Gratis, tanpa spam. Cuma tips praktis dan update seputar dunia kampus yang bisa langsung kamu pakai.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih! Fitur newsletter segera hadir.');">
+          <input type="email" placeholder="email@kamu.com" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CTA AKHIR -->
+    <section class="cta-akhir">
+      <h2>Butuh Bantuan Lebih dari Sekadar Baca Artikel?</h2>
+      <p>Konsultasi pertama gratis. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Gratis via WA</a>
+        <a href="/layanan" class="btn-secondary">Lihat Layanan</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card-artikel');
+  const noResult = document.getElementById('noResult');
+
+  let currentFilter = 'Semua';
+  let currentSearch = '';
+
+  function applyFilter() {
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const kategori = card.getAttribute('data-kategori');
+      const text = card.textContent.toLowerCase();
+      
+      const matchKategori = currentFilter === 'Semua' || kategori === currentFilter;
+      const matchSearch = currentSearch === '' || text.includes(currentSearch);
+
+      if (matchKategori && matchSearch) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    noResult.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      applyFilter();
+    });
+  });
+
+  searchInput.addEventListener('input', (e) => {
+    currentSearch = e.target.value.toLowerCase().trim();
+    applyFilter();
+  });
+</script>
+
+<style>
+  /* HERO */
+  .hero-blog { text-align: center; padding: 5rem 2rem 3rem; max-width: 900px; margin: 0 auto; }
+  .pill { background: rgba(22, 135, 123, 0.15); color: var(--accent-color); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 1.5rem; }
+  .hero-blog h1 { font-size: 3rem; line-height: 1.1; color: var(--text-main); margin-bottom: 1.5rem; }
+  .hero-blog .highlight { color: var(--accent-color); }
+  .hero-blog p { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem; line-height: 1.7; }
+
+  /* SEARCH */
+  .search-wrapper { position: relative; max-width: 550px; margin: 0 auto; }
+  .search-icon { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); font-size: 1.1rem; pointer-events: none; }
+  #searchInput { width: 100%; padding: 1rem 1rem 1rem 3.5rem; border: 2px solid var(--border-color); border-radius: 50px; background: var(--card-bg); color: var(--text-main); font-size: 1rem; font-family: inherit; box-sizing: border-box; transition: border-color 0.3s, box-shadow 0.3s; outline: none; }
+  #searchInput:focus { border-color: var(--accent-color); box-shadow: 0 0 0 4px rgba(22, 135, 123, 0.15); }
+
+  /* FEATURED */
+  .section-container { padding: 0 2rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .featured-label { font-size: 0.85rem; font-weight: bold; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+  .featured-card { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+  .featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15); border-color: var(--accent-color); }
+  .featured-image { display: flex; align-items: center; justify-content: center; min-height: 300px; }
+  .featured-emoji { font-size: 7rem; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); }
+  .featured-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .kategori-tag { background: rgba(22, 135, 123, 0.15); color: var(--accent-color); font-size: 0.72rem; padding: 5px 12px; border-radius: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; align-self: flex-start; margin-bottom: 1rem; }
+  .featured-content h2 { color: var(--text-main); font-size: 1.75rem; line-height: 1.3; margin: 0 0 1rem; }
+  .featured-content p { color: var(--text-muted); line-height: 1.7; margin: 0 0 1.5rem; }
+  .article-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .btn-read { color: var(--accent-color); font-weight: bold; font-size: 0.95rem; }
+
+  /* FILTER */
+  .filter-section { padding: 0 2rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .filter-scroll { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .filter-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 0.88rem; font-family: inherit; }
+  .filter-btn.active, .filter-btn:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+
+  /* GRID ARTIKEL */
+  .grid-artikel { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .card-artikel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .card-artikel:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,0.12); border-color: var(--accent-color); }
+  .card-image { height: 140px; display: flex; align-items: center; justify-content: center; }
+  .card-emoji { font-size: 3.5rem; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)); }
+  .card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+  .card-body h3 { color: var(--text-main); font-size: 1.1rem; line-height: 1.4; margin: 0 0 0.75rem; }
+  .card-body p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem; flex-grow: 1; }
+  .card-meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 1rem; }
+
+  /* NO RESULT */
+  .no-result { text-align: center; padding: 3rem 2rem; background: var(--card-bg); border: 2px dashed var(--border-color); border-radius: 16px; grid-column: 1 / -1; }
+  .no-result-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .no-result h3 { color: var(--text-main); margin-bottom: 0.5rem; }
+  .no-result p { color: var(--text-muted); }
+
+  /* NEWSLETTER */
+  .newsletter-section { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  .newsletter-box { background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%); border-radius: 20px; padding: 3rem 2rem; text-align: center; color: white; }
+  .newsletter-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .newsletter-box h2 { color: white; font-size: 1.75rem; margin-bottom: 0.75rem; }
+  .newsletter-box p { color: rgba(255,255,255,0.9); max-width: 500px; margin: 0 auto 2rem; line-height: 1.6; }
+  .newsletter-form { display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+  .newsletter-form input { flex: 1; min-width: 200px; padding: 14px 20px; border: none; border-radius: 50px; font-size: 0.95rem; font-family: inherit; outline: none; }
+  .newsletter-form button { padding: 14px 28px; background: #0f172a; color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: background 0.3s; }
+  .newsletter-form button:hover { background: #1e293b; }
+
+  /* CTA AKHIR */
+  .cta-akhir { text-align: center; padding: 5rem 2rem; background-color: var(--bg-color); border-top: 1px solid var(--border-color); }
+  .cta-akhir h2 { color: var(--text-main); margin-bottom: 1rem; font-size: 2rem; }
+  .cta-akhir p { color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background-color: var(--accent-color); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+  .btn-secondary { background-color: transparent; color: var(--accent-color); padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; border: 2px solid var(--accent-color); display: inline-block; transition: background 0.3s; }
+  .btn-secondary:hover { background-color: rgba(22, 135, 123, 0.1); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-blog { padding: 3rem 1rem 2rem; }
+    .hero-blog h1 { font-size: 2rem; }
+    .hero-blog p { font-size: 1rem; }
+    .section-container { padding: 0 1rem 2rem; }
+    .filter-section { padding: 0 1rem 2rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-image { min-height: 180px; }
+    .featured-emoji { font-size: 5rem; }
+    .featured-content { padding: 1.5rem; }
+    .featured-content h2 { font-size: 1.35rem; }
+    .grid-artikel { grid-template-columns: 1fr; }
+    .newsletter-section { padding: 1rem; }
+    .newsletter-box { padding: 2rem 1.5rem; }
+    .newsletter-box h2 { font-size: 1.4rem; }
+    .cta-akhir { padding: 3rem 1rem; }
+    .cta-akhir h2 { font-size: 1.5rem; }
+  }
+</style>

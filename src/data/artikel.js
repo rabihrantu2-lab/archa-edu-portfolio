@@ -1,0 +1,131 @@
+export const artikelList = [
+  {
+    slug: "cara-menentukan-judul-skripsi",
+    judul: "5 Cara Menentukan Judul Skripsi yang Disetujui Dosen",
+    ringkasan: "Bingung cari judul? Ini 5 strategi yang bisa kamu pakai supaya judul langsung di-acc dosen, tanpa revisi bolak-balik.",
+    kategori: "Skripsi",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-28",
+    waktuBaca: "7 menit",
+    gambar: "📝",
+    warna: "#38bdf8",
+    unggulan: true,
+    tags: ["judul skripsi", "tips skripsi", "dosen pembimbing"]
+  },
+  {
+    slug: "analisis-data-spss-untuk-pemula",
+    judul: "Analisis Data SPSS untuk Pemula: Dari Nol Sampai Paham",
+    ringkasan: "Panduan lengkap analisis data SPSS untuk mahasiswa yang baru pertama kali ngolah data skripsi. Bahasa santai, step-by-step.",
+    kategori: "Analisis Data",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-25",
+    waktuBaca: "12 menit",
+    gambar: "📊",
+    warna: "#0ea5e9",
+    unggulan: false,
+    tags: ["SPSS", "analisis data", "statistik"]
+  },
+  {
+    slug: "tips-hadapi-sidang-skripsi",
+    judul: "10 Tips Hadapi Sidang Skripsi Tanpa Grogi",
+    ringkasan: "Sidang bukan momok. Dengan persiapan yang tepat, kamu bisa jawab pertanyaan dosen dengan percaya diri. Ini caranya.",
+    kategori: "Sidang",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-22",
+    waktuBaca: "8 menit",
+    gambar: "🎓",
+    warna: "#0284c7",
+    unggulan: false,
+    tags: ["sidang skripsi", "mental", "persiapan"]
+  },
+  {
+    slug: "mahasiswa-ut-tips-sukses-tap",
+    judul: "Mahasiswa UT Wajib Tahu: Tips Sukses Menyelesaikan TAP",
+    ringkasan: "TAP (Tugas Akhir Program) itu unik. Sistemnya beda dari skripsi reguler. Ini panduan khusus untuk mahasiswa Universitas Terbuka.",
+    kategori: "UT & PJJ",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-20",
+    waktuBaca: "10 menit",
+    gambar: "🎯",
+    warna: "#38bdf8",
+    unggulan: false,
+    tags: ["UT", "TAP", "tutorial online"]
+  },
+  {
+    slug: "kuliah-sambil-kerja-manajemen-waktu",
+    judul: "Kuliah Sambil Kerja? Ini Manajemen Waktu yang Berhasil",
+    ringkasan: "Bukan hal mustahil. Banyak mahasiswa Archa yang sukses kuliah sambil kerja. Ini rahasia manajemen waktu mereka.",
+    kategori: "Tips Mahasiswa",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-18",
+    waktuBaca: "6 menit",
+    gambar: "⏰",
+    warna: "#0ea5e9",
+    unggulan: false,
+    tags: ["kuliah sambil kerja", "manajemen waktu", "produktif"]
+  },
+  {
+    slug: "cara-parafrase-agar-tidak-plagiat",
+    judul: "Cara Parafrase yang Benar Agar Tidak Kena Plagiat",
+    ringkasan: "Parafrase bukan sekadar ganti kata. Ini teknik parafrase yang benar, aman, dan tetap menjaga makna asli.",
+    kategori: "Penulisan",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-15",
+    waktuBaca: "9 menit",
+    gambar: "✍️",
+    warna: "#0284c7",
+    unggulan: false,
+    tags: ["parafrase", "plagiarisme", "penulisan"]
+  },
+  {
+    slug: "memilih-jurnal-sinta-scopus",
+    judul: "Cara Memilih Jurnal Sinta & Scopus yang Tepat",
+    ringkasan: "Salah pilih jurnal = buang waktu. Ini panduan memilih jurnal yang sesuai bidangmu, plus tips menghindari jurnal predator.",
+    kategori: "Publikasi",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-12",
+    waktuBaca: "11 menit",
+    gambar: "📚",
+    warna: "#38bdf8",
+    unggulan: false,
+    tags: ["jurnal", "sinta", "scopus", "publikasi"]
+  },
+  {
+    slug: "skripsi-bab-3-metodologi",
+    judul: "Skripsi Bab 3: Panduan Menyusun Metodologi Penelitian",
+    ringkasan: "Bab 3 sering bikin mahasiswa stuck. Ini panduan lengkap menyusun metodologi yang rapi dan mudah dipahami.",
+    kategori: "Skripsi",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-10",
+    waktuBaca: "10 menit",
+    gambar: "🔬",
+    warna: "#0ea5e9",
+    unggulan: false,
+    tags: ["bab 3", "metodologi", "skripsi"]
+  },
+  {
+    slug: "konsultasi-beasiswa-lpdp",
+    judul: "Panduan Konsultasi Beasiswa LPDP untuk Pemula",
+    ringkasan: "Mimpi kuliah gratis? Ini langkah awal yang harus kamu siapkan untuk mendaftar beasiswa LPDP.",
+    kategori: "Beasiswa",
+    penulis: "Tim Archa",
+    tanggal: "2026-09-08",
+    waktuBaca: "8 menit",
+    gambar: "🏆",
+    warna: "#0284c7",
+    unggulan: false,
+    tags: ["beasiswa", "LPDP", "kuliah gratis"]
+  }
+];
+
+export const kategoriList = [
+  "Semua",
+  "Skripsi",
+  "Analisis Data",
+  "Sidang",
+  "UT & PJJ",
+  "Tips Mahasiswa",
+  "Penulisan",
+  "Publikasi",
+  "Beasiswa"
+];

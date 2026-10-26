@@ -1,0 +1,579 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const alur = [
+  {
+    no: "01",
+    icon: "💬",
+    title: "Konsultasi Gratis",
+    desc: "Ceritakan kondisimu lewat WhatsApp atau isi form. Mau itu baru mau mulai, stuck di bab 3, atau bingung cari judul — kami dengar dulu, bukan langsung jualan.",
+    detail: [
+      "Tanpa biaya, tanpa komitmen",
+      "Respon maksimal 1x24 jam",
+      "Bisa via chat, voice note, atau video call",
+      "Khusus UT: kami paham sistem tutorial online & TAP"
+    ],
+    cta: "Chat WhatsApp Sekarang",
+    link: "https://wa.me/62895323665266"
+  },
+  {
+    no: "02",
+    icon: "🎯",
+    title: "Pemetaan Kebutuhan",
+    desc: "Kami bantu petakan masalahmu: butuh bimbingan penuh dari nol, atau cuma butuh second opinion di bagian tertentu? Semua kita diskusikan terbuka.",
+    detail: [
+      "Analisis kondisi & deadline kamu",
+      "Rekomendasi layanan yang paling cocok",
+      "Estimasi biaya & durasi yang jelas",
+      "Tidak ada paksaan untuk lanjut"
+    ],
+    cta: "Lihat Layanan Kami",
+    link: "/layanan"
+  },
+  {
+    no: "03",
+    icon: "📦",
+    title: "Pilih Paket & Jadwal",
+    desc: "Kamu yang putuskan. Kami sediakan beberapa paket dengan harga transparan. Cocok untuk mahasiswa yang kuliah sambil kerja atau belajar jarak jauh.",
+    detail: [
+      "Pilihan paket Basic, Reguler, atau Premium",
+      "Jadwal fleksibel — bisa sore, malam, atau weekend",
+      "DP 50% di awal, sisanya setelah selesai",
+      "Bisa cicil untuk paket tertentu"
+    ],
+    cta: "Lihat Harga & Paket",
+    link: "/harga"
+  },
+  {
+    no: "04",
+    icon: "🚀",
+    title: "Proses Pendampingan",
+    desc: "Ini bagian intinya. Kamu dibimbing 1-on-1 oleh konsultan yang paham alur kampus. Progres dipantau, komunikasi lancar via WhatsApp atau Zoom.",
+    detail: [
+      "Sesi rutin sesuai kesepakatan",
+      "Review tiap bab + catatan perbaikan",
+      "Template, panduan, dan checklist progres",
+      "Support via grup WA khusus kamu"
+    ],
+    cta: "Tanya Dulu via WA",
+    link: "https://wa.me/62895323665266"
+  },
+  {
+    no: "05",
+    icon: "🎓",
+    title: "Siap Sidang & Selesai",
+    desc: "Kamu dapat hasil akhir yang rapi, simulasi sidang, dan dukungan sampai benar-benar selesai. Termasuk garansi revisi setelah sidang.",
+    detail: [
+      "Simulasi sidang dengan pertanyaan dosen",
+      "Latihan menjawab & mental siap",
+      "Garansi revisi setelah sidang",
+      "Dukungan sampai kamu lulus"
+    ],
+    cta: "Konsultasi Gratis Dulu",
+    link: "https://wa.me/62895323665266"
+  }
+];
+
+const faqAlur = [
+  {
+    q: "Saya mahasiswa Universitas Terbuka (UT), apakah bisa dibimbing?",
+    a: "Bisa banget. Kami paham karakteristik UT: belajar jarak jauh, tutorial online, TAP (Tugas Akhir Program), dan jadwal yang fleksibel. Konsultan kami berpengalaman mendampingi mahasiswa UT dari berbagai program studi."
+  },
+  {
+    q: "Saya kuliah sambil kerja, jadwalnya padat. Bisa?",
+    a: "Justru itu salah satu spesialisasi kami. Sesi bisa dijadwalkan sore, malam, atau weekend. Komunikasi utama via WhatsApp, jadi kamu bisa tanya kapan saja tanpa harus tatap muka."
+  },
+  {
+    q: "Berapa lama proses pendampingan?",
+    a: "Tergantung kebutuhan. Untuk bimbingan penuh (dari judul sampai sidang), rata-rata 3–6 bulan. Untuk layanan spesifik seperti analisis data atau proofreading, bisa 1–14 hari."
+  },
+  {
+    q: "Apakah saya harus bayar di awal?",
+    a: "Konsultasi pertama 100% gratis. Kalau lanjut, sistemnya DP 50% di awal, pelunasan setelah pekerjaan selesai. Jadi kamu tidak bayar penuh di depan."
+  },
+  {
+    q: "Apakah bisa ganti konsultan kalau tidak cocok?",
+    a: "Bisa. Kami ingin kamu nyaman, karena prosesnya butuh keterbukaan. Cukup informasikan ke admin, kami akan carikan konsultan lain yang lebih cocok."
+  }
+];
+---
+
+<Layout>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-alur">
+      <span class="pill">🔄 Alur Kerja Sama</span>
+      <h1>Simpel, Transparan,<br /><span class="highlight">Tanpa Drama.</span></h1>
+      <p>Lima langkah mudah dari konsultasi gratis sampai kamu siap sidang. Cocok untuk mahasiswa UT, kuliah sambil kerja, atau siapa pun yang butuh pendampingan.</p>
+      
+      <div class="hero-buttons">
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Mulai Konsultasi Gratis</a>
+        <a href="/harga" class="btn-secondary">Lihat Harga Dulu</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Mahasiswa terbantu</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4.9/5</span>
+          <span class="stat-label">Rating kepuasan</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">&lt;1 jam</span>
+          <span class="stat-label">Rata-rata respon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section">
+      <div class="section-header">
+        <h2>Bagaimana Cara Kerjanya?</h2>
+        <p>Ikuti langkah-langkah di bawah ini. Klik tombolnya untuk mulai.</p>
+      </div>
+
+      <div class="timeline">
+        {alur.map((step, index) => (
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="marker-icon">{step.icon}</span>
+            </div>
+            <div class="timeline-content">
+              <div class="step-header">
+                <span class="step-number">Langkah {step.no}</span>
+                <h3>{step.title}</h3>
+              </div>
+              <p class="step-desc">{step.desc}</p>
+              <ul class="step-detail">
+                {step.detail.map((d) => <li>{d}</li>)}
+              </ul>
+              <a href={step.link} target={step.link.startsWith('http') ? '_blank' : '_self'} class="btn-step">
+                {step.cta} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION KHUSUS UT / MAHASISWA JARAK JAUH -->
+    <section class="section-container bg-alt">
+      <div class="section-header">
+        <span class="pill">🎯 Spesialisasi Kami</span>
+        <h2>Khusus untuk Mahasiswa Jarak Jauh</h2>
+        <p>Kami paham tantangan kuliah online, terutama di Universitas Terbuka dan kampus dengan sistem PJJ.</p>
+      </div>
+      
+      <div class="grid-spesialisasi">
+        <div class="card-spesialisasi">
+          <div class="icon-box">💻</div>
+          <h3>Full Online</h3>
+          <p>Semua sesi bisa dilakukan via Zoom, Google Meet, atau WhatsApp. Tidak perlu tatap muka.</p>
+        </div>
+        <div class="card-spesialisasi">
+          <div class="icon-box">🕐</div>
+          <h3>Jadwal Fleksibel</h3>
+          <p>Cocok untuk kamu yang kuliah sambil kerja. Bisa sore, malam, atau weekend.</p>
+        </div>
+        <div class="card-spesialisasi">
+          <div class="icon-box">📚</div>
+          <h3>Paham Sistem UT</h3>
+          <p>Mulai dari tutorial online, TAP, sampai format karil dan artikel ilmiah UT.</p>
+        </div>
+        <div class="card-spesialisasi">
+          <div class="icon-box">💬</div>
+          <h3>Support Sepanjang Proses</h3>
+          <p>Grup WA khusus bareng konsultan. Tanya kapan saja, tidak perlu nunggu jadwal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <h2>Pertanyaan yang Sering Ditanyakan</h2>
+        <p>Belum yakin? Mungkin jawabannya ada di sini.</p>
+      </div>
+
+      <div class="faq-list">
+        {faqAlur.map((item) => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA AKHIR -->
+    <section class="cta-akhir">
+      <h2>Masih Bingung Mulai dari Mana?</h2>
+      <p>Konsultasi pertama gratis, tanpa paksaan. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Chat WhatsApp Sekarang</a>
+        <a href="/kontak" class="btn-secondary">Isi Form Kontak</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* HERO */
+  .hero-alur {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pill {
+    background: rgba(22, 135, 123, 0.15);
+    color: var(--accent-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .hero-alur h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+  }
+  .hero-alur .highlight {
+    color: var(--accent-color);
+  }
+  .hero-alur p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    padding: 4rem 2rem 5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .section-header h2 {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 30px;
+    bottom: 30px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent-color) 0%, rgba(22, 135, 123, 0.2) 100%);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .timeline-marker {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 3px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 6px var(--bg-color);
+  }
+  .marker-icon {
+    font-size: 1.5rem;
+  }
+  .timeline-content {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .timeline-content:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  }
+  .step-header {
+    margin-bottom: 1rem;
+  }
+  .step-number {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .timeline-content h3 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin: 0.25rem 0 0;
+  }
+  .step-desc {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .step-detail {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+  .step-detail li {
+    color: var(--text-muted);
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .step-detail li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+  .btn-step {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+  .btn-step:hover {
+    background: var(--accent-hover);
+  }
+
+  /* SPESIALISASI */
+  .section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .bg-alt {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+  .grid-spesialisasi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  .card-spesialisasi {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+  }
+  .card-spesialisasi:hover {
+    transform: translateY(-5px);
+  }
+  .icon-box {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .card-spesialisasi h3 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+  }
+  .card-spesialisasi p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* FAQ */
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+  .faq-item[open] {
+    border-color: var(--accent-color);
+  }
+  .faq-item summary {
+    font-weight: bold;
+    color: var(--text-main);
+    list-style: none;
+    position: relative;
+    padding-right: 2rem;
+    cursor: pointer;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transition: transform 0.3s;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+  .faq-item p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 1rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* CTA AKHIR */
+  .cta-akhir {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+  }
+  .cta-akhir h2 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  .cta-akhir p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* BUTTONS GLOBAL */
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+  }
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 2px solid var(--accent-color);
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  .btn-secondary:hover {
+    background-color: rgba(22, 135, 123, 0.1);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-alur h1 { font-size: 2rem; }
+    .hero-stats { gap: 1.5rem; padding: 1.5rem; }
+    .stat-number { font-size: 1.5rem; }
+    .timeline { padding-left: 0; }
+    .timeline::before { display: none; }
+    .timeline-item { flex-direction: column; gap: 1rem; }
+    .timeline-marker { 
+      width: 40px; 
+      height: 40px; 
+      box-shadow: none;
+    }
+    .marker-icon { font-size: 1.2rem; }
+    .timeline-content { padding: 1.25rem; }
+    .section-header h2 { font-size: 1.75rem; }
+  }
+</style>

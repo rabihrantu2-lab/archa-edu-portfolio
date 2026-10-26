@@ -1,0 +1,355 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { artikelList } from '../../data/artikel.js';
+
+export async function getStaticPaths() {
+  return artikelList.map((artikel) => ({
+    params: { slug: artikel.slug },
+    props: { artikel }
+  }));
+}
+
+const { artikel } = Astro.props;
+const artikelTerkait = artikelList.filter(a => a.slug !== artikel.slug && a.kategori === artikel.kategori).slice(0, 3);
+const lainnya = artikelTerkait.length === 0 ? artikelList.filter(a => a.slug !== artikel.slug).slice(0, 3) : artikelTerkait;
+
+const tanggalFormat = new Date(artikel.tanggal).toLocaleDateString('id-ID', { 
+  day: 'numeric', month: 'long', year: 'numeric' 
+});
+---
+
+<Layout>
+  <main>
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb-section">
+      <a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span> <span class="current">{artikel.kategori}</span>
+    </section>
+
+    <!-- HEADER ARTIKEL -->
+    <article class="article-wrapper">
+      <header class="article-header">
+        <span class="kategori-tag">{artikel.kategori}</span>
+        <h1>{artikel.judul}</h1>
+        <p class="article-lead">{artikel.ringkasan}</p>
+        
+        <div class="article-info">
+          <div class="author-avatar">{artikel.penulis.charAt(0)}</div>
+          <div>
+            <strong>{artikel.penulis}</strong>
+            <div class="article-date">📅 {tanggalFormat} · ⏱ {artikel.waktuBaca}</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- THUMBNAIL -->
+      <div class="article-thumbnail" style={`background: linear-gradient(135deg, ${artikel.warna} 0%, ${artikel.warna}cc 100%);`}>
+        <span>{artikel.gambar}</span>
+      </div>
+
+      <!-- ISI ARTIKEL (Contoh) -->
+      <div class="article-body">
+        <p><em>Artikel ini sedang dalam proses penulisan lengkap. Di bawah ini adalah contoh struktur yang akan kamu lihat di setiap artikel Archa Edu Academy.</em></p>
+
+        <h2>Kenapa Topik Ini Penting?</h2>
+        <p>Menulis skripsi, tesis, atau karya ilmiah bukanlah hal yang mudah. Banyak mahasiswa yang stuck di tengah jalan karena berbagai alasan — mulai dari bingung cari judul, kesulitan olah data, sampai mental yang down menjelang sidang.</p>
+        <p>Di Archa Edu Academy, kami percaya bahwa setiap mahasiswa bisa menyelesaikan studinya dengan baik, asalkan mendapatkan pendampingan yang tepat.</p>
+
+        <h2>Langkah-Langkah Praktis</h2>
+        <ol>
+          <li><strong>Pahami dulu akar masalahnya.</strong> Apakah kamu stuck karena tidak paham metodologi, atau karena datanya bermasalah?</li>
+          <li><strong>Cari referensi yang tepat.</strong> Bukan asal comot dari internet, tapi dari sumber akademik yang kredibel.</li>
+          <li><strong>Konsultasi dengan yang lebih berpengalaman.</strong> Kadang kita cuma butuh second opinion untuk membuka jalan buntu.</li>
+          <li><strong>Kerjakan bertahap.</strong> Jangan menunggu sempurna, mulai dulu. Revisi bisa belakangan.</li>
+        </ol>
+
+        <blockquote>
+          "Skripsi itu bukan tentang jadi sempurna, tapi tentang menyelesaikannya dengan cara yang benar."
+        </blockquote>
+
+        <h2>Kesimpulan</h2>
+        <p>Jangan biarkan skripsi menjadi momok. Dengan strategi yang tepat dan pendampingan yang sesuai, kamu pasti bisa melewatinya. Kalau butuh bantuan, Archa Edu Academy siap membantu.</p>
+
+        <!-- TAGS -->
+        <div class="article-tags">
+          {artikel.tags.map(tag => <span class="tag">#{tag}</span>)}
+        </div>
+
+        <!-- SHARE -->
+        <div class="share-section">
+          <span class="share-label">Bagikan artikel ini:</span>
+          <div class="share-buttons">
+            <a href={`https://wa.me/?text=${encodeURIComponent(artikel.judul + ' - ' + Astro.url.href)}`} target="_blank" class="share-btn wa">💬 WhatsApp</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(artikel.judul)}&url=${Astro.url.href}`} target="_blank" class="share-btn tw">🐦 Twitter</a>
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url.href}`} target="_blank" class="share-btn fb">📘 Facebook</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ARTIKEL TERKAIT -->
+    <section class="related-section">
+      <div class="section-header">
+        <h2>Artikel Terkait</h2>
+        <p>Baca juga yang ini, mungkin kamu butuh.</p>
+      </div>
+      <div class="grid-related">
+        {lainnya.map((a) => (
+          <a href={`/blog/${a.slug}`} class="card-related">
+            <div class="card-related-image" style={`background: linear-gradient(135deg, ${a.warna} 0%, ${a.warna}cc 100%);`}>
+              <span>{a.gambar}</span>
+            </div>
+            <div class="card-related-body">
+              <span class="kategori-tag">{a.kategori}</span>
+              <h3>{a.judul}</h3>
+              <div class="card-meta">⏱ {a.waktuBaca}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-akhir">
+      <h2>Butuh Bantuan untuk Skripsimu?</h2>
+      <p>Konsultasi pertama gratis. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Gratis via WA</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* BREADCRUMB */
+  .breadcrumb-section {
+    padding: 2rem 2rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .breadcrumb-section a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+  .breadcrumb-section span { margin: 0 0.5rem; }
+  .breadcrumb-section .current { color: var(--text-muted); }
+
+  /* ARTICLE */
+  .article-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .article-header { margin-bottom: 2rem; }
+  .kategori-tag {
+    background: rgba(22, 135, 123, 0.15);
+    color: var(--accent-color);
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .article-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--text-main);
+    margin: 0 0 1rem;
+  }
+  .article-lead {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 2rem;
+  }
+  .article-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .author-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .article-info strong { color: var(--text-main); }
+  .article-date { font-size: 0.85rem; color: var(--text-muted); }
+
+  .article-thumbnail {
+    height: 280px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .article-thumbnail span {
+    font-size: 7rem;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  }
+
+  /* ISI */
+  .article-body {
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+  .article-body h2 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+  }
+  .article-body p { color: var(--text-muted); margin-bottom: 1.25rem; }
+  .article-body ol { color: var(--text-muted); padding-left: 1.5rem; }
+  .article-body li { margin-bottom: 0.75rem; }
+  .article-body blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(22, 135, 123, 0.05);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text-main);
+  }
+  .article-body strong { color: var(--text-main); }
+
+  /* TAGS */
+  .article-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 3rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+  .tag {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+  }
+
+  /* SHARE */
+  .share-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+  }
+  .share-label {
+    font-weight: bold;
+    color: var(--text-main);
+    font-size: 0.9rem;
+  }
+  .share-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .share-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+  }
+  .share-btn:hover { transform: translateY(-2px); }
+  .share-btn.wa { background: #25d366; color: white; }
+  .share-btn.tw { background: #1da1f2; color: white; }
+  .share-btn.fb { background: #1877f2; color: white; }
+
+  /* ARTIKEL TERKAIT */
+  .related-section {
+    padding: 3rem 2rem 5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .section-header h2 {
+    font-size: 1.75rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
+  .section-header p { color: var(--text-muted); }
+
+  .grid-related {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .card-related {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card-related:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+  }
+  .card-related-image {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+  .card-related-body { padding: 1.25rem; }
+  .card-related-body h3 {
+    color: var(--text-main);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0 0 0.75rem;
+  }
+  .card-meta { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* CTA */
+  .cta-akhir {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+  }
+  .cta-akhir h2 { color: var(--text-main); margin-bottom: 1rem; font-size: 1.75rem; }
+  .cta-akhir p { color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .article-header h1 { font-size: 1.75rem; }
+    .article-lead { font-size: 1rem; }
+    .article-thumbnail { height: 180px; }
+    .article-thumbnail span { font-size: 4rem; }
+    .article-body { font-size: 1rem; }
+    .article-body h2 { font-size: 1.25rem; }
+    .article-wrapper { padding: 1rem; }
+    .breadcrumb-section { padding: 1.5rem 1rem 0; }
+  }
+</style>

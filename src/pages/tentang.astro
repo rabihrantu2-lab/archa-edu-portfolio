@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Tentang Kami - Archa Edu Academy";
+const description = "Lembaga konsultasi pendidikan yang membantu mahasiswa Indonesia menyusun karya ilmiah berkualitas, jujur, dan bertanggung jawab.";
+
+const tim = [
+  { nama: "La Mushisyari Rabih Rantu", jabatan: "Founder & CEO", keahlian: "Konsultan Skripsi & Publikasi Jurnal" },
+  { nama: "Aisyah Rahanur Putri", jabatan: "Co-Founder & CFO", keahlian: "Akuntan & Administrasi" }
+];
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-tentang">
+      <h1>Tentang Archa Edu Academy</h1>
+      <p>Membantu mahasiswa dan peneliti Indonesia menyusun karya ilmiah yang berkualitas, jujur, dan dapat dipertanggungjawabkan.</p>
+    </section>
+
+    <!-- PROFIL SECTION -->
+    <section class="section-container">
+      <div class="profil-box">
+        <h2>Siapa Kami?</h2>
+        <p>Archa Edu Academy adalah lembaga konsultasi pendidikan yang berfokus pada pendampingan penulisan akademik. Kami hadir bukan untuk menggantikan peran mahasiswa, melainkan untuk membimbing mereka agar benar-benar memahami proses penelitian.</p>
+        <p>Didirikan oleh para akademisi dan praktisi, kami percaya bahwa setiap mahasiswa berhak mendapatkan bimbingan yang jelas, transparan, dan terjangkau. Kami tidak menjanjikan hasil instan, tetapi kami menjamin proses pendampingan yang terarah dan personal.</p>
+      </div>
+    </section>
+
+    <!-- VISI MISI SECTION -->
+    <section class="section-container bg-alt">
+      <div class="grid-visi-misi">
+        <div class="card-visi">
+          <h2>Visi</h2>
+          <p>"Menjadi mitra terpercaya mahasiswa dalam menyelesaikan tantangan akademik dengan solusi yang cepat, rapi, dan sesuai kebutuhan."</p>
+        </div>
+        <div class="card-misi">
+          <h2>Misi</h2>
+          <ul>
+            <li>Menyediakan pendampingan akademik yang profesional dan personal.</li>
+            <li>Mengedukasi mahasiswa tentang metodologi penelitian yang benar.</li>
+            <li>Menjaga transparansi harga dan proses tanpa biaya tersembunyi.</li>
+            <li>Membantu mahasiswa mengatasi hambatan akademik dengan layanan yang responsif dan tepat waktu.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIM SECTION -->
+    <section class="section-container">
+      <div class="section-header">
+        <span class="pill">Tim Kami</span>
+        <h2>Orang-Orang di Balik Archa Edu Academy</h2>
+        <p>Didukung oleh konsultan berpengalaman dari berbagai disiplin ilmu.</p>
+      </div>
+      <div class="grid-tim">
+        {tim.map((orang) => (
+          <div class="card-tim">
+            <div class="foto-placeholder">📷</div>
+            <h3>{orang.nama}</h3>
+            <span class="jabatan">{orang.jabatan}</span>
+            <p>{orang.keahlian}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- LEGALITAS SECTION -->
+    <section class="section-container bg-alt">
+      <div class="legalitas-box">
+        <h2>Legalitas</h2>
+        <p>Archa Edu Academy beroperasi di bawah naungan badan hukum resmi. Dokumen legalitas akan ditampilkan di sini setelah proses penerbitan selesai.</p>
+        <div class="dokumen-grid">
+          <div class="dokumen-item">📄 NIB</div>
+          <div class="dokumen-item">📄 NPWP</div>
+          <div class="dokumen-item">📄 Akta Pendirian</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-akhir">
+      <h2>Ingin Berdiskusi dengan Tim Kami?</h2>
+      <p>Konsultasi pertama gratis. Ceritakan kebutuhanmu, kami siap membantu.</p>
+      <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Hubungi Kami via WhatsApp</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero-tentang { text-align: center; padding: 5rem 2rem 3rem; max-width: 800px; margin: 0 auto; }
+  .hero-tentang h1 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 1rem; }
+  .hero-tentang p { font-size: 1.2rem; color: var(--text-muted); }
+
+  /* Profil */
+  .profil-box { max-width: 800px; margin: 0 auto; }
+  .profil-box h2 { color: var(--text-main); margin-bottom: 1.5rem; }
+  .profil-box p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; font-size: 1.05rem; }
+
+  /* Visi Misi */
+  .bg-alt { background-color: var(--card-bg); border-radius: 16px; margin: 2rem auto; max-width: 1200px; padding: 4rem 2rem; }
+  .grid-visi-misi { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .card-visi, .card-misi { background: var(--bg-color); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
+  .card-visi h2, .card-misi h2 { color: var(--accent-color); margin-bottom: 1rem; font-size: 1.5rem; }
+  .card-visi p, .card-misi ul { color: var(--text-muted); line-height: 1.6; }
+  .card-misi ul { padding-left: 1.2rem; margin: 0; }
+  .card-misi li { margin-bottom: 0.8rem; }
+
+  /* Tim */
+  .section-container { padding: 3rem 2rem 5rem; max-width: 1200px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { font-size: 2rem; color: var(--text-main); margin-bottom: 0.5rem; }
+  .section-header p { color: var(--text-muted); }
+  .pill { background-color: var(--accent-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block; margin-bottom: 1rem; }
+  .grid-tim { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+  .card-tim { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem 1.5rem; }
+  .foto-placeholder { width: 100px; height: 100px; background: var(--border-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-muted); }
+  .card-tim h3 { color: var(--text-main); margin: 0 0 0.25rem; font-size: 1.1rem; }
+  .card-tim .jabatan { display: inline-block; background: rgba(22, 135, 123, 0.1); color: var(--accent-color); font-size: 0.8rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 1rem; }
+  .card-tim p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+
+  /* Legalitas */
+  .legalitas-box { max-width: 800px; margin: 0 auto; text-align: center; }
+  .legalitas-box h2 { color: var(--text-main); margin-bottom: 1rem; }
+  .legalitas-box p { color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem; }
+  .dokumen-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .dokumen-item { background: var(--bg-color); padding: 1rem 2rem; border-radius: 8px; border: 1px dashed var(--border-color); color: var(--text-muted); font-weight: bold; }
+
+  /* CTA */
+  .cta-akhir { text-align: center; padding: 5rem 2rem; background-color: var(--card-bg); border-top: 1px solid var(--border-color); }
+  .cta-akhir h2 { color: var(--text-main); margin-bottom: 1rem; }
+  .cta-akhir p { color: var(--text-muted); margin-bottom: 2rem; }
+  .btn-primary { background-color: var(--accent-color); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-tentang { padding: 3rem 1rem 2rem; }
+    .hero-tentang h1 { font-size: 1.8rem; }
+    .hero-tentang p { font-size: 1rem; }
+    .section-container { padding: 2rem 1rem 3rem; }
+    .bg-alt { padding: 2.5rem 1rem; border-radius: 12px; }
+    .profil-box p { font-size: 1rem; }
+    .section-header h2 { font-size: 1.6rem; }
+    .dokumen-grid { gap: 0.5rem; }
+    .dokumen-item { padding: 0.75rem 1.25rem; font-size: 0.85rem; }
+    .cta-akhir { padding: 3rem 1rem; }
+    .cta-akhir h2 { font-size: 1.5rem; }
+  }
+</style>

@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "FAQ - Archa Edu Academy";
+const description = "Pertanyaan yang sering ditanyakan tentang layanan konsultasi skripsi, tesis, dan bimbingan akademik.";
+
+const faqData = [
+  // ===== UMUM =====
+  { kategori: "Umum", q: "Apa itu Archa Edu Academy?", a: "Archa Edu Academy adalah lembaga konsultasi pendidikan yang fokus membantu mahasiswa menyusun skripsi, tesis, disertasi, dan karya ilmiah. Kami bukan jasa 'buatkan', tapi partner belajar — kami bimbing kamu supaya paham dan bisa mempertahankan karyamu di sidang." },
+  { kategori: "Umum", q: "Apa bedanya Archa dengan jasa joki skripsi?", a: "Beda banget. Joki itu naskah kamu dikerjakan orang lain — risikonya besar, bisa kena sanksi akademik, dan kamu nggak paham isinya. Di Archa, kami dampingin kamu step-by-step. Kamu tetap penulisnya, kami yang arahkan." },
+  { kategori: "Umum", q: "Saya mahasiswa Universitas Terbuka (UT), apakah bisa dibimbing?", a: "Sangat bisa! Kami paham karakteristik UT: belajar jarak jauh, tutorial online, TAP (Tugas Akhir Program), dan Karil (Karya Ilmiah). Konsultan kami sudah berpengalaman mendampingi mahasiswa UT dari berbagai prodi." },
+  { kategori: "Umum", q: "Apakah saya harus datang ke kantor?", a: "Nggak perlu. 100% bisa online via Zoom, Google Meet, atau WhatsApp. Kantor kami di Bogor, tapi mayoritas klien kami dari luar kota dan tetap lancar karena komunikasi full online." },
+  { kategori: "Umum", q: "Kampus saya di luar Jawa, tetap bisa?", a: "Tentu! Justru banyak klien kami dari Sumatera, Kalimantan, Sulawesi, bahkan luar negeri. Selama ada koneksi internet, kita bisa kerja sama dengan lancar." },
+
+  // ===== LAYANAN =====
+  { kategori: "Layanan", q: "Layanan apa saja yang tersedia?", a: "Ada 8 layanan utama: (1) Konsultasi Skripsi & Tesis, (2) Bimbingan Tugas Akhir/TAP, (3) Latihan Sidang, (4) Analisis Data (SPSS, R, Python, SmartPLS, Excel), (5) Proofreading & Editing, (6) Publikasi Jurnal, (7) Konsultasi Beasiswa, dan (8) Cek Plagiarisme." },
+  { kategori: "Layanan", q: "Bedanya Bimbingan Tugas Akhir dan Konsultasi Skripsi apa?", a: "Konsultasi Skripsi & Tesis itu pendampingan menyeluruh dari judul sampai sidang (3–6 bulan). Sedangkan Bimbingan Tugas Akhir itu fokus di tahap tertentu aja — misalnya kamu cuma butuh arahan di bab 3 atau bab 4." },
+  { kategori: "Layanan", q: "Analisis data pakai software apa?", a: "Tergantung kebutuhanmu. Kami bisa bantu SPSS, SmartPLS, AMOS, R, Python, Excel, dan EViews. Untuk kualitatif, kami bantu NVivo atau analisis tematik manual." },
+  { kategori: "Layanan", q: "Apakah bisa bantu pilih judul skripsi?", a: "Bisa, dan ini termasuk dalam konsultasi gratis. Kami bantu brainstorming 3–5 judul yang relevan dengan jurusanmu, lengkap dengan alasan kenapa judul itu cocok." },
+  { kategori: "Layanan", q: "Bisa bantu submit ke jurnal Scopus?", a: "Bisa. Kami bantu dari pemilihan jurnal yang sesuai bidangmu (Q1–Q4), format naskah sesuai template jurnal, submit, sampai revisi dari reviewer. Untuk jurnal Sinta (S1–S6) juga bisa." },
+
+  // ===== PROSES =====
+  { kategori: "Proses", q: "Bagaimana alur kerjanya?", a: "Simpel, 5 langkah: (1) Konsultasi gratis via WA, (2) Pemetaan kebutuhan, (3) Pilih paket & jadwal, (4) Proses pendampingan, (5) Siap sidang & selesai." },
+  { kategori: "Proses", q: "Berapa lama durasi pendampingan?", a: "Tergantung jenis layanannya. Bimbingan penuh (judul sampai sidang): 3–6 bulan. Analisis data: 3–14 hari. Proofreading: 1–3 hari. Publikasi jurnal: 1–3 bulan. Latihan sidang: 1–2 hari." },
+  { kategori: "Proses", q: "Saya kuliah sambil kerja, jadwalnya padat. Bisa?", a: "Justru itu spesialisasi kami! Sesi bisa dijadwalkan sore, malam, atau weekend. Komunikasi utama via WhatsApp dan Zoom, jadi kamu bisa tanya kapan saja." },
+  { kategori: "Proses", q: "Apakah konsultan bisa diganti kalau tidak cocok?", a: "Bisa. Kami ingin kamu nyaman karena prosesnya butuh keterbukaan. Cukup info ke admin, kami akan carikan konsultan lain yang lebih cocok dengan gaya belajarmu." },
+  { kategori: "Proses", q: "Bagaimana cara pantau progresnya?", a: "Setiap klien dapat akses ke grup WA khusus bareng konsultan. Ada checklist progres, catatan revisi tiap bab, dan target per tahap. Jadi kamu tahu persis sudah sampai mana." },
+
+  // ===== HARGA =====
+  { kategori: "Harga", q: "Apakah konsultasi pertama benar-benar gratis?", a: "100% gratis, tanpa syarat. Kamu bisa cerita dulu soal kondisimu, dan kami kasih arahan awal. Kalau belum cocok atau belum siap lanjut, nggak masalah — nggak ada paksaan." },
+  { kategori: "Harga", q: "Berapa kisaran harganya?", a: "Bervariasi tergantung layanan dan tingkat kesulitan. Detail lengkapnya ada di halaman Harga. Yang pasti, semua harga transparan di depan — nggak ada biaya tersembunyi." },
+  { kategori: "Harga", q: "Bagaimana sistem pembayarannya?", a: "DP 50% di awal, pelunasan setelah pekerjaan selesai. Jadi kamu nggak bayar penuh di depan. Bisa transfer bank, e-wallet (GoPay, OVO, Dana, ShopeePay), atau QRIS." },
+  { kategori: "Harga", q: "Apakah bisa dicicil?", a: "Untuk paket Reguler dan Premium, bisa dicicil 2–3 kali sesuai kesepakatan. Silakan diskusikan dengan admin saat konsultasi awal." },
+  { kategori: "Harga", q: "Kalau saya ganti paket di tengah jalan, bagaimana?", a: "Bisa. Kalau kamu upgrade paket, kamu cukup bayar selisihnya. Kalau downgrade, kelebihan akan dikembalikan atau dialihkan ke layanan lain — sesuai kesepakatan." },
+  { kategori: "Harga", q: "Apakah ada biaya tambahan tersembunyi?", a: "Nggak ada. Semua biaya sudah jelas sejak awal. Kalau di tengah jalan ada kebutuhan tambahan (misalnya beli data penelitian atau biaya submit jurnal), kami infokan dulu sebelum jalan." },
+
+  // ===== PRIVASI =====
+  { kategori: "Privasi", q: "Apakah data dan identitas saya aman?", a: "Aman 100%. Kami tidak pernah membagikan data klien ke pihak mana pun. Semua komunikasi dan file dijaga kerahasiaannya." },
+  { kategori: "Privasi", q: "Apakah naskah saya bisa dijamin tidak tersebar?", a: "Bisa. Setelah proyek selesai, kamu bisa minta kami hapus semua file dari server kami. Kami juga tidak menyimpan salinan tanpa izin." },
+  { kategori: "Privasi", q: "Apakah hasilnya dijamin diterima dosen?", a: "Kami nggak bisa jamin keputusan dosen — itu di luar kendali kami. Tapi kami beri garansi revisi sampai kamu puas dan siap sidang." },
+  { kategori: "Privasi", q: "Apakah saya bisa anonim saat konsultasi?", a: "Bisa. Kalau kamu malu atau butuh privasi ekstra, cukup pakai inisial atau nama samaran. Yang penting kami tahu kampus dan jurusanmu supaya bisa kasih saran yang tepat." }
+];
+
+const kategoriList = [
+  { key: "Semua", label: "Semua", icon: "🌐" },
+  { key: "Umum", label: "Umum", icon: "💡" },
+  { key: "Layanan", label: "Layanan", icon: "📚" },
+  { key: "Proses", label: "Proses", icon: "🔄" },
+  { key: "Harga", label: "Harga & Bayar", icon: "💰" },
+  { key: "Privasi", label: "Privasi", icon: "🔒" }
+];
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-faq">
+      <span class="pill">❓ Pusat Bantuan</span>
+      <h1>Ada Pertanyaan?<br /><span class="highlight">Kami Jawab.</span></h1>
+      <p>Kumpulan pertanyaan yang paling sering ditanyakan mahasiswa. Kalau nggak ketemu jawabannya, langsung chat kami aja — gratis!</p>
+
+      <!-- SEARCH BAR -->
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Cari pertanyaan... (misal: UT, harga, sidang)" 
+          autocomplete="off"
+        />
+      </div>
+
+      <p class="search-hint">💡 Tips: coba ketik <strong>"UT"</strong>, <strong>"gratis"</strong>, atau <strong>"bayar"</strong></p>
+    </section>
+
+    <!-- FILTER KATEGORI -->
+    <section class="filter-section">
+      <div class="filter-scroll">
+        {kategoriList.map((kat, i) => (
+          <button 
+            class={`filter-btn ${i === 0 ? 'active' : ''}`} 
+            data-filter={kat.key}
+          >
+            <span class="filter-icon">{kat.icon}</span>
+            {kat.label}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ LIST -->
+    <section class="section-container">
+      <div class="faq-list" id="faqList">
+        {faqData.map((item, index) => (
+          <details class="faq-item" data-kategori={item.kategori}>
+            <summary>
+              <span class="faq-num">{String(index + 1).padStart(2, '0')}</span>
+              <span class="faq-q">{item.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>{item.a}</p>
+              <div class="faq-meta">
+                <span class="kategori-tag">{item.kategori}</span>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <!-- PESAN KOSONG -->
+      <div id="noResult" class="no-result" style="display: none;">
+        <div class="no-result-icon">🤔</div>
+        <h3>Belum ketemu jawabannya?</h3>
+        <p>Coba cari dengan kata kunci lain, atau langsung tanya kami via WhatsApp.</p>
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Tanya Langsung via WA</a>
+      </div>
+    </section>
+
+    <!-- BANTUAN TAMBAHAN -->
+    <section class="section-container bg-alt">
+      <div class="section-header">
+        <span class="pill">💬 Butuh Bantuan Lain?</span>
+        <h2>Masih Ada yang Mengganjal?</h2>
+        <p>Kalau pertanyaanmu nggak ada di daftar atas, jangan ragu untuk tanya langsung. Kami manusia, bukan robot.</p>
+      </div>
+
+      <div class="grid-bantuan">
+        <a href="https://wa.me/62895323665266" target="_blank" class="card-bantuan">
+          <div class="icon-bantuan">💬</div>
+          <h3>Chat WhatsApp</h3>
+          <p>Respon cepat, biasanya kurang dari 1 jam. Tanya apa saja, gratis.</p>
+          <span class="link-bantuan">Chat Sekarang &rarr;</span>
+        </a>
+        <a href="/kontak" class="card-bantuan">
+          <div class="icon-bantuan">📝</div>
+          <h3>Isi Form Kontak</h3>
+          <p>Kalau kamu tipe yang lebih nyaman nulis panjang, pakai form ini.</p>
+          <span class="link-bantuan">Isi Form &rarr;</span>
+        </a>
+        <a href="/alur" class="card-bantuan">
+          <div class="icon-bantuan">🔄</div>
+          <h3>Lihat Alur Kerja</h3>
+          <p>Penasaran gimana prosesnya dari awal sampai selesai? Cek di sini.</p>
+          <span class="link-bantuan">Lihat Alur &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA AKHIR -->
+    <section class="cta-akhir">
+      <h2>Udah Jelas Kan?</h2>
+      <p>Sekarang tinggal mulai. Konsultasi pertama gratis, tanpa komitmen. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Mulai Konsultasi Gratis</a>
+        <a href="/harga" class="btn-secondary">Lihat Harga Dulu</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const faqItems = document.querySelectorAll('.faq-item');
+  const noResult = document.getElementById('noResult');
+
+  let currentFilter = 'Semua';
+  let currentSearch = '';
+
+  function applyFilter() {
+    let visibleCount = 0;
+
+    faqItems.forEach(item => {
+      const kategori = item.getAttribute('data-kategori');
+      const text = item.textContent.toLowerCase();
+      
+      const matchKategori = currentFilter === 'Semua' || kategori === currentFilter;
+      const matchSearch = currentSearch === '' || text.includes(currentSearch);
+
+      if (matchKategori && matchSearch) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResult.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      applyFilter();
+    });
+  });
+
+  searchInput.addEventListener('input', (e) => {
+    currentSearch = e.target.value.toLowerCase().trim();
+    applyFilter();
+  });
+
+  faqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        faqItems.forEach(other => {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  /* HERO */
+  .hero-faq { text-align: center; padding: 5rem 2rem 3rem; max-width: 900px; margin: 0 auto; }
+  .pill { background: rgba(22, 135, 123, 0.15); color: var(--accent-color); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 1.5rem; }
+  .hero-faq h1 { font-size: 3rem; line-height: 1.1; color: var(--text-main); margin-bottom: 1.5rem; }
+  .hero-faq .highlight { color: var(--accent-color); }
+  .hero-faq p { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2rem; line-height: 1.7; }
+
+  /* SEARCH */
+  .search-wrapper { position: relative; max-width: 600px; margin: 0 auto 1rem; }
+  .search-icon { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); font-size: 1.1rem; pointer-events: none; }
+  #searchInput { width: 100%; padding: 1rem 1rem 1rem 3.5rem; border: 2px solid var(--border-color); border-radius: 50px; background: var(--card-bg); color: var(--text-main); font-size: 1rem; font-family: inherit; box-sizing: border-box; transition: border-color 0.3s, box-shadow 0.3s; outline: none; }
+  #searchInput:focus { border-color: var(--accent-color); box-shadow: 0 0 0 4px rgba(22, 135, 123, 0.15); }
+  .search-hint { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+  .search-hint strong { color: var(--accent-color); }
+
+  /* FILTER */
+  .filter-section { padding: 0 2rem 3rem; max-width: 1200px; margin: 0 auto; }
+  .filter-scroll { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+  .filter-btn { display: flex; align-items: center; gap: 0.5rem; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 0.9rem; font-family: inherit; }
+  .filter-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+  .filter-btn.active { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+  .filter-icon { font-size: 1rem; }
+
+  /* FAQ LIST */
+  .section-container { padding: 0 2rem 5rem; max-width: 900px; margin: 0 auto; }
+  .faq-list { display: flex; flex-direction: column; gap: 1rem; }
+  .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
+  .faq-item[open] { border-color: var(--accent-color); box-shadow: 0 8px 20px -5px rgba(22, 135, 123, 0.2); }
+  .faq-item summary { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; cursor: pointer; list-style: none; font-weight: 600; color: var(--text-main); user-select: none; transition: background 0.2s; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { background: rgba(22, 135, 123, 0.05); }
+  .faq-num { font-size: 0.8rem; font-weight: bold; color: var(--accent-color); background: rgba(22, 135, 123, 0.1); padding: 4px 8px; border-radius: 6px; flex-shrink: 0; }
+  .faq-q { flex: 1; font-size: 1.02rem; line-height: 1.5; }
+  .faq-icon { font-size: 1.5rem; color: var(--accent-color); font-weight: 300; transition: transform 0.3s; flex-shrink: 0; line-height: 1; }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); }
+  .faq-answer { padding: 0 1.5rem 1.5rem; animation: slideDown 0.3s ease; }
+  .faq-answer p { color: var(--text-muted); line-height: 1.75; margin: 0 0 1rem; font-size: 0.98rem; }
+  .faq-meta { display: flex; justify-content: flex-end; }
+  .kategori-tag { font-size: 0.72rem; background: rgba(22, 135, 123, 0.1); color: var(--accent-color); padding: 4px 10px; border-radius: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NO RESULT */
+  .no-result { text-align: center; padding: 3rem 2rem; background: var(--card-bg); border: 2px dashed var(--border-color); border-radius: 16px; margin-top: 1rem; }
+  .no-result-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .no-result h3 { color: var(--text-main); margin-bottom: 0.5rem; }
+  .no-result p { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+  /* BANTUAN TAMBAHAN */
+  .bg-alt { background-color: var(--card-bg); border-radius: 20px; padding: 4rem 2rem; max-width: 1100px; margin: 0 auto 3rem; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { font-size: 2rem; color: var(--text-main); margin-bottom: 0.5rem; }
+  .section-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+  .grid-bantuan { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .card-bantuan { background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; text-decoration: none; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; }
+  .card-bantuan:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 10px 20px -5px rgba(22, 135, 123, 0.2); }
+  .icon-bantuan { font-size: 2.5rem; margin-bottom: 1rem; }
+  .card-bantuan h3 { color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem; }
+  .card-bantuan p { color: var(--text-muted); line-height: 1.6; font-size: 0.9rem; margin: 0 0 1.25rem; flex-grow: 1; }
+  .link-bantuan { color: var(--accent-color); font-weight: bold; font-size: 0.9rem; }
+
+  /* CTA AKHIR */
+  .cta-akhir { text-align: center; padding: 5rem 2rem; background-color: var(--bg-color); border-top: 1px solid var(--border-color); }
+  .cta-akhir h2 { color: var(--text-main); margin-bottom: 1rem; font-size: 2rem; }
+  .cta-akhir p { color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* BUTTONS */
+  .btn-primary { background-color: var(--accent-color); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: background 0.3s; }
+  .btn-primary:hover { background-color: var(--accent-hover); }
+  .btn-secondary { background-color: transparent; color: var(--accent-color); padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; border: 2px solid var(--accent-color); display: inline-block; transition: background 0.3s; }
+  .btn-secondary:hover { background-color: rgba(22, 135, 123, 0.1); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-faq { padding: 3rem 1rem 2rem; }
+    .hero-faq h1 { font-size: 2rem; }
+    .hero-faq p { font-size: 1rem; }
+    .filter-section { padding: 0 1rem 2rem; }
+    .filter-btn { padding: 8px 14px; font-size: 0.82rem; gap: 0.3rem; }
+    .section-container { padding: 0 1rem 4rem; }
+    .faq-item summary { padding: 1rem; gap: 0.75rem; }
+    .faq-q { font-size: 0.95rem; }
+    .faq-answer { padding: 0 1rem 1.25rem; }
+    .section-header h2 { font-size: 1.6rem; }
+    .bg-alt { padding: 2.5rem 1rem; border-radius: 12px; margin: 0 1rem 2rem; }
+    .cta-akhir { padding: 3rem 1rem; }
+    .cta-akhir h2 { font-size: 1.5rem; }
+  }
+</style>
