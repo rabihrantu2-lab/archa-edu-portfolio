@@ -1,0 +1,15 @@
+---
+import { MessageCircle } from '@lucide/astro';
+import { whatsappUrl } from '../data/academy';
+---
+<aside class="ae-floating" aria-label="Konsultasi cepat">
+  <a class="ae-button" href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><MessageCircle size={21} aria-hidden="true" /> Konsultasi Sekarang</a>
+</aside>
+<script>
+  const cta = document.querySelector<HTMLElement>('.ae-floating');
+  const footer = document.querySelector('footer');
+  if (cta && footer && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => { cta.hidden = entry.isIntersecting; });
+    observer.observe(footer);
+  }
+</script>

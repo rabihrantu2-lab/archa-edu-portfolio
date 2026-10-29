@@ -1,0 +1,19 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import { founders, supportTeam, whatsappUrl } from '../data/academy';
+import TeamCard from './TeamCard.astro';
+interface Props { id?: string }
+const { id = 'tim' } = Astro.props;
+---
+<section class="ae-section" id={id} aria-labelledby={`${id}-title`}>
+  <div class="ae-heading">
+    <span class="ae-eyebrow">Meet the Team</span>
+    <h2 id={`${id}-title`}>Kenali tim di balik<br class="ae-desktop-break" /> perjalanan akademik Anda.</h2>
+    <p>Kami bukan sekadar platform otomatis. Di balik layar, tim support kami siap memastikan setiap kebutuhan akademik Anda tertangani dengan cepat dan tuntas.</p>
+  </div>
+  <p class="ae-group-label">Pendiri & Konsultan Akademik</p>
+  <div class="ae-founders-grid">{founders.map(member => <TeamCard member={member} />)}</div>
+  <p class="ae-group-label ae-support-heading">Tim Pendukung</p>
+  <div class="ae-support-grid">{supportTeam.map(member => <TeamCard member={member} support />)}</div>
+  <div class="ae-team-action"><a class="ae-button" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Konsultasi dengan Tim <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+</section>

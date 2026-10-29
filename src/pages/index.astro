@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TeamSection from '../components/TeamSection.astro';
+import PricingSection from '../components/PricingSection.astro';
+import { whatsappUrl } from '../data/academy';
+import { ShieldCheck, Users, CalendarDays } from '@lucide/astro';
 
 const title = "Archa Edu Academy - Bimbingan Skripsi & Tesis Terpercaya";
 const description = "Bimbingan skripsi & tesis dari penentuan judul sampai sidang. Konsultan berpengalaman, harga transparan, konsultasi pertama gratis.";
@@ -20,11 +24,6 @@ const alur = [
   { no: "04", title: "Selesai & Siap Sidang", desc: "Kamu dapat hasil akhir, garansi revisi, dan dukungan sampai benar-benar selesai." }
 ];
 
-const harga = [
-  { nama: "Basic", harga: "Rp 500.000", periode: "/paket", fitur: ["Konsultasi awal gratis", "Bimbingan 2 sesi", "Review 1 bab", "Template & panduan"] },
-  { nama: "Reguler", harga: "Rp 2.500.000", periode: "/paket", fitur: ["Semua fitur Basic", "Bimbingan 1-on-1 rutin", "Review semua bab", "Simulasi sidang", "Garansi revisi"], populer: true },
-  { nama: "Premium", harga: "Rp 4.500.000", periode: "/paket", fitur: ["Semua fitur Reguler", "Prioritas jadwal konsultan", "Simulasi sidang intensif", "Bantuan publikasi jurnal", "Pendampingan sampai lulus"] }
-];
 
 const testimoni = [
   { teks: "Awalnya cuma mau tanya-tanya, ternyata dibantu sampai selesai. Bab 3 saya yang mandek 2 bulan, selesai dalam 3 minggu.", nama: "Rani", detail: "S1 Manajemen" },
@@ -39,15 +38,16 @@ const testimoni = [
     <section class="hero">
       <div class="hero-text">
         <span class="eyebrow"><span></span> PARTNER PERJALANAN AKADEMIKMU</span>
-        <h1>Langkah lebih jelas.<br /><span class="highlight">Kuliah lebih terarah.</span></h1>
+        <h1>Pendampingan akademik<br /><span class="highlight">yang lebih personal.</span></h1>
         <p>Pendampingan 1-on-1 untuk skripsi, tesis, analisis data, dan publikasi jurnal. Konsultasi pertama gratis, harga jelas di depan, tidak ada biaya tersembunyi.</p>
         <div class="hero-buttons">
-          <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Gratis via WA &rarr;</a>
+          <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Konsultasi Gratis via WA &rarr;</a>
           <a href="/layanan" class="btn-secondary">Lihat Layanan</a>
         </div>
         <div class="trust-bar">
-          <span>✓ Pendampingan 1-on-1</span>
-          <span>✓ Harga transparan</span>
+          <span><Users size={16} aria-hidden="true" /> Konsultasi langsung</span>
+          <span><ShieldCheck size={16} aria-hidden="true" /> Harga transparan</span>
+          <span><CalendarDays size={16} aria-hidden="true" /> 4 tahun mendampingi</span>
         </div>
       </div>
       <div class="hero-image" aria-label="Gambaran tahapan pendampingan akademik">
@@ -121,28 +121,8 @@ const testimoni = [
       </div>
     </section>
 
-    <!-- HARGA SECTION -->
-    <section class="section-container bg-alt">
-      <div class="section-header">
-        <span class="pill">Harga</span>
-        <h2>Investasi untuk Masa Depanmu</h2>
-        <p>Harga transparan. DP 50%, sisanya setelah selesai.</p>
-      </div>
-      <div class="grid-harga">
-        {harga.map((item) => (
-          <div class={`card-harga ${item.populer ? 'populer' : ''}`}>
-            {item.populer && <span class="label-populer">★ Paling Populer</span>}
-            <h3>{item.nama}</h3>
-            <div class="harga-nominal">{item.harga} <span>{item.periode}</span></div>
-            <ul>
-              {item.fitur.map((f) => <li>✓ {f}</li>)}
-            </ul>
-            <a href={`https://wa.me/62895323665266?text=Halo,%20saya%20tertarik%20paket%20${item.nama}`} class="btn-harga" target="_blank">Pilih Paket</a>
-          </div>
-        ))}
-      </div>
-      <p class="catatan-harga">*Harga dapat berubah sesuai tingkat kesulitan dan deadline. <a href="/harga">Lihat detail lengkap &rarr;</a></p>
-    </section>
+    <TeamSection />
+    <PricingSection />
 
     <!-- TESTIMONI SECTION -->
     <section class="section-container">
@@ -168,7 +148,7 @@ const testimoni = [
     <section class="cta-akhir">
       <h2>Masih Bingung Mulai dari Mana?</h2>
       <p>Konsultasi pertama gratis. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
-      <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Chat WhatsApp Sekarang</a>
+      <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Chat WhatsApp Sekarang</a>
     </section>
   </main>
 </Layout>

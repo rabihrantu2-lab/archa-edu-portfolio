@@ -1,0 +1,31 @@
+---
+import { GraduationCap, BookOpen, MessagesSquare, ArrowUpRight, Wallet } from '@lucide/astro';
+import { categories, priceLabel, whatsappUrl } from '../data/academy';
+interface Props { id?: string }
+const { id = 'harga-layanan' } = Astro.props;
+const icons = [GraduationCap, BookOpen, MessagesSquare];
+---
+<section class="ae-section" id={id} aria-labelledby={`${id}-title`}>
+  <div class="ae-heading">
+    <span class="ae-eyebrow">Layanan & Harga</span>
+    <h2 id={`${id}-title`}>Pilih pendampingan<br class="ae-desktop-break" /> sesuai kebutuhan Anda.</h2>
+    <p>Kenali pilihan layanan, lalu diskusikan ruang lingkup dan jadwalnya langsung dengan tim.</p>
+  </div>
+  <div class="ae-pricing-grid">
+    {categories.map((category, i) => {
+      const Icon = icons[i];
+      return <article class="ae-price-card">
+        <div class="ae-price-heading"><span class="ae-icon"><Icon size={24} aria-hidden="true" /></span><span class="ae-category-index">0{i + 1}</span></div>
+        <h3>{category.title}</h3><p class="ae-category-description">{category.description}</p>
+        <ul class="ae-service-list">
+          {category.services.map(service => <li>
+            <div class="ae-service-name"><h4>{service.name}</h4>{service.popular && <span class="ae-badge">Paling Laris</span>}</div>
+            <p class="ae-price">{priceLabel(service.priceMin, service.priceMax)}</p>
+            <a class="ae-service-link" href={whatsappUrl(service.name)} target="_blank" rel="noopener noreferrer" aria-label={`Konsultasi ${service.name} melalui WhatsApp (tab baru)`}>Konsultasi layanan <ArrowUpRight size={17} aria-hidden="true" /></a>
+          </li>)}
+        </ul>
+      </article>;
+    })}
+  </div>
+  <div class="ae-deposit"><Wallet size={26} aria-hidden="true" /><div><strong>ALL BOOKING DP 50%</strong><p>DP 50% dari biaya layanan yang disepakati. Konfirmasikan ruang lingkup, jadwal, dan ketentuan layanan melalui WhatsApp.</p></div></div>
+</section>

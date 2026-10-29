@@ -1,0 +1,29 @@
+---
+import { Headset } from '@lucide/astro';
+import type { TeamMember } from '../data/academy';
+interface Props { member: TeamMember; support?: boolean }
+const { member, support = false } = Astro.props;
+---
+<article class:list={['ae-person', { 'ae-person-support': support }]}>
+  <div class="ae-portrait">
+    <span class="ae-initials" aria-hidden="true">{member.initials}</span>
+    {member.image && <img data-team-photo src={member.image} alt={`Foto ${member.name}`} width="480" height="600" loading="lazy" decoding="async" style={{ objectPosition: member.imagePosition }} />}
+  </div>
+  <div class="ae-person-body">
+    <h3>{member.name}</h3>
+    <p class="ae-role">{member.role}</p>
+    {support && <span class="ae-support-label"><Headset size={18} aria-hidden="true" /> Siap membantu Anda</span>}
+    <p class="ae-bio">{member.bio}</p>
+  </div>
+</article>
+<script>
+  function showPhotoFallbacks() {
+    document.querySelectorAll<HTMLImageElement>('[data-team-photo]').forEach(image => {
+      const fallback = () => { image.hidden = true; };
+      if (image.complete && image.naturalWidth === 0) fallback();
+      image.addEventListener('error', fallback, { once: true });
+    });
+  }
+  showPhotoFallbacks();
+  document.addEventListener('astro:page-load', showPhotoFallbacks);
+</script>

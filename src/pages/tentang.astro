@@ -1,13 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TeamSection from '../components/TeamSection.astro';
+import { FileText } from '@lucide/astro';
+import { whatsappUrl } from '../data/academy';
 
 const title = "Tentang Kami - Archa Edu Academy";
 const description = "Lembaga konsultasi pendidikan yang membantu mahasiswa Indonesia menyusun karya ilmiah berkualitas, jujur, dan bertanggung jawab.";
 
-const tim = [
-  { nama: "La Mushisyari Rabih Rantu", jabatan: "Founder & CEO", keahlian: "Konsultan Skripsi & Publikasi Jurnal" },
-  { nama: "Aisyah Rahanur Putri", jabatan: "Co-Founder & CFO", keahlian: "Akuntan & Administrasi" }
-];
 ---
 
 <Layout title={title} description={description}>
@@ -46,24 +45,7 @@ const tim = [
       </div>
     </section>
 
-    <!-- TIM SECTION -->
-    <section class="section-container">
-      <div class="section-header">
-        <span class="pill">Tim Kami</span>
-        <h2>Orang-Orang di Balik Archa Edu Academy</h2>
-        <p>Didukung oleh konsultan berpengalaman dari berbagai disiplin ilmu.</p>
-      </div>
-      <div class="grid-tim">
-        {tim.map((orang) => (
-          <div class="card-tim">
-            <div class="foto-placeholder">📷</div>
-            <h3>{orang.nama}</h3>
-            <span class="jabatan">{orang.jabatan}</span>
-            <p>{orang.keahlian}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <TeamSection />
 
     <!-- LEGALITAS SECTION -->
     <section class="section-container bg-alt">
@@ -71,9 +53,9 @@ const tim = [
         <h2>Legalitas</h2>
         <p>Archa Edu Academy beroperasi di bawah naungan badan hukum resmi. Dokumen legalitas akan ditampilkan di sini setelah proses penerbitan selesai.</p>
         <div class="dokumen-grid">
-          <div class="dokumen-item">📄 NIB</div>
-          <div class="dokumen-item">📄 NPWP</div>
-          <div class="dokumen-item">📄 Akta Pendirian</div>
+          <div class="dokumen-item"><FileText size={20} aria-hidden="true" /> NIB</div>
+          <div class="dokumen-item"><FileText size={20} aria-hidden="true" /> NPWP</div>
+          <div class="dokumen-item"><FileText size={20} aria-hidden="true" /> Akta Pendirian</div>
         </div>
       </div>
     </section>
@@ -82,7 +64,7 @@ const tim = [
     <section class="cta-akhir">
       <h2>Ingin Berdiskusi dengan Tim Kami?</h2>
       <p>Konsultasi pertama gratis. Ceritakan kebutuhanmu, kami siap membantu.</p>
-      <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Hubungi Kami via WhatsApp</a>
+      <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Hubungi Kami via WhatsApp</a>
     </section>
   </main>
 </Layout>
