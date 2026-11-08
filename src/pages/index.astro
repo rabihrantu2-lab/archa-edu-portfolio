@@ -5,23 +5,23 @@ import PricingSection from '../components/PricingSection.astro';
 import { whatsappUrl } from '../data/academy';
 import { ShieldCheck, Users, CalendarDays } from '@lucide/astro';
 
-const title = "Archa Edu Academy - Bimbingan Skripsi & Tesis Terpercaya";
-const description = "Bimbingan skripsi & tesis dari penentuan judul sampai sidang. Konsultan berpengalaman, harga transparan, konsultasi pertama gratis.";
+const title = "Archa Edu Academy - Bimbingan Tugas Akhir, Tugas Semester & Publikasi Jurnal";
+const description = "Bimbingan tugas akhir, tugas semester, proofreading, publikasi jurnal, dan pencetakan. Konsultan berpengalaman dengan harga transparan.";
 
 const fitur = [
-  { nama: "Konsultasi Skripsi & Tesis", desc: "Pendampingan menyeluruh dari judul sampai sidang. Dibimbing konsultan yang paham alur kampus.", badge: "POPULER" },
-  { nama: "Bimbingan Tugas Akhir", desc: "Arahan intensif di bab tertentu (1, 3, atau 4). Fokus, tidak bertele-tele." },
-  { nama: "Analisis Data", desc: "SPSS, R, Python, SmartPLS, Excel. Hasil interpretasi jelas, bukan cuma angka." },
+  { nama: "Bimbingan Tugas Akhir", desc: "Pendampingan menyeluruh tugas akhir dari judul sampai selesai nilai keluar.", badge: "POPULER" },
+  { nama: "Bimbingan Tugas Semester", desc: "Pendampingan menyeluruh mengenai tugas matkul satu semester." },
   { nama: "Proofreading & Editing", desc: "Perbaiki tata bahasa, ejaan, format sitasi, dan konsistensi penulisan." },
-  { nama: "Publikasi Jurnal", desc: "Bantu pilih jurnal, format naskah, submit, sampai revisi reviewer." },
-  { nama: "Konsultasi Beasiswa", desc: "Persiapkan esai, CV, dan strategi aplikasi beasiswa dalam & luar negeri." }
+  { nama: "Publikasi Jurnal", desc: "Di bantu pemilihan jurnal, Format naskah, Submit, Sampai revisi reviewer." },
+  { nama: "Pencetakan", desc: "Kami tersedia layanan bimbingan perihal pencetakkan buku skripsi, jurnal, cerita dll." },
+  { nama: "Layanan Pribadi Kampus", desc: "Mari tanyakan apa yang ingin kamu sampaikan." }
 ];
 
 const alur = [
-  { no: "01", title: "Konsultasi Gratis", desc: "Ceritakan kondisimu via WhatsApp atau form. Kami dengar dulu, bukan langsung jualan." },
+  { no: "01", title: "Konsultasi Cepat", desc: "Ceritakan kondisimu via WhatsApp atau form. Kami dengar dulu, bukan langsung jualan." },
   { no: "02", title: "Pilih Paket", desc: "Kami rekomendasikan paket paling sesuai. Kamu yang putuskan, tanpa paksaan." },
   { no: "03", title: "Proses Pendampingan", desc: "Jadwal teratur, progres bisa dipantau, komunikasi lancar via WhatsApp atau Zoom." },
-  { no: "04", title: "Selesai & Siap Sidang", desc: "Kamu dapat hasil akhir, garansi revisi, dan dukungan sampai benar-benar selesai." }
+  { no: "04", title: "Selesai", desc: "Kamu dapat hasil akhir, garansi revisi, dan dukungan sampai benar-benar selesai." }
 ];
 
 
@@ -39,9 +39,9 @@ const testimoni = [
       <div class="hero-text">
         <span class="eyebrow"><span></span> PARTNER PERJALANAN AKADEMIKMU</span>
         <h1>Pendampingan akademik<br /><span class="highlight">yang lebih personal.</span></h1>
-        <p>Pendampingan 1-on-1 untuk skripsi, tesis, analisis data, dan publikasi jurnal. Konsultasi pertama gratis, harga jelas di depan, tidak ada biaya tersembunyi.</p>
+        <p>Pendampingan 1-on-1 untuk tugas akhir, tugas semester, publikasi jurnal, dan pencetakan. Konsultasi cepat, harga jelas di depan, tidak ada biaya tersembunyi.</p>
         <div class="hero-buttons">
-          <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Konsultasi Gratis via WA &rarr;</a>
+          <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Konsultasi Cepat via WA &rarr;</a>
           <a href="/layanan" class="btn-secondary">Lihat Layanan</a>
         </div>
         <div class="trust-bar">
@@ -88,7 +88,7 @@ const testimoni = [
       <div class="section-header">
         <span class="pill">Layanan Kami</span>
         <h2>Pilih Sesuai Kebutuhanmu</h2>
-        <p>Semua dimulai dengan konsultasi gratis. Tanpa paksaan.</p>
+        <p>Semua dimulai dengan konsultasi cepat. Tanpa paksaan.</p>
       </div>
       <div class="grid-fitur">
         {fitur.map((item, index) => (
@@ -147,7 +147,7 @@ const testimoni = [
     <!-- CTA AKHIR -->
     <section class="cta-akhir">
       <h2>Masih Bingung Mulai dari Mana?</h2>
-      <p>Konsultasi pertama gratis. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <p>Konsultasi cepat. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
       <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Chat WhatsApp Sekarang</a>
     </section>
   </main>

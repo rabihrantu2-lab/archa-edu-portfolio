@@ -2,80 +2,56 @@
 import Layout from '../layouts/Layout.astro';
 
 const title = "Layanan Konsultasi Mahasiswa - Archa Edu Academy";
-const description = "8 layanan konsultasi: skripsi, tesis, analisis data SPSS, proofreading, publikasi jurnal, dan beasiswa. Konsultasi gratis.";
+const description = "5 layanan konsultasi: tugas akhir, latihan sidang, parafrase, analisis data, dan cek plagiarisme.";
 
 const layanan = [
   { 
-    nama: "Konsultasi Skripsi & Tesis", 
-    desc: "Pendampingan menyeluruh dari penentuan judul, penyusunan proposal, sampai persiapan sidang.", 
-    durasi: "3-6 bulan", 
-    harga: "Rp 500.000",
-    kategori: "Skripsi",
-    badge: "Populer"
-  },
-  { 
-    nama: "Bimbingan Tugas Akhir", 
-    desc: "Arahan intensif di tahap tertentu: bab 1, bab 3, atau bab 4. Fokus, tidak bertele-tele.", 
-    durasi: "Fleksibel", 
-    harga: "Rp 300.000",
+    nama: "Konsultasi Karil, Metopen, Proyek, BTA & Tesis", 
+    desc: "Menyelesaikan masalah yang terjadi, Membantu mengarahkan langkah selanjutnya untuk menyelesaikan.", 
+    durasi: "1-2 hari", 
+    harga: "Rp 100.000",
     kategori: "Skripsi",
     badge: ""
   },
   { 
-    nama: "Latihan Sidang / Simulasi", 
-    desc: "Simulasi sidang dengan pertanyaan dosen penguji. Latih mental dan kesiapanmu.", 
+    nama: "Bimbingan Tugas Akhir", 
+    desc: "Pendampingan menyeluruh dari penentuan judul, Metode, Penyusunan Proposal, Persiapan sidang, Sampai Final. Bebas revisi.", 
+    durasi: "3-6 bulan", 
+    harga: "Rp 1.000.000",
+    kategori: "Skripsi",
+    badge: "Populer"
+  },
+  { 
+    nama: "Latihan sidang/persentasi", 
+    desc: "Simulasi sidang/persentasi dengan pertanyaan dosen penguji. Latih mental dan kesiapanmu.", 
     durasi: "1-2 hari", 
     harga: "Rp 200.000",
     kategori: "Skripsi",
     badge: "Hot"
   },
   { 
-    nama: "Analisis Data", 
-    desc: "Olah data kuantitatif atau kualitatif dengan SPSS, R, Python, SmartPLS, atau Excel.", 
-    durasi: "3-14 hari", 
-    harga: "Rp 300.000",
+    nama: "Parafrase, Analisis data, Turnitin", 
+    desc: "Jika membutuhkan parafrase Ai score, Turnitin dan analisis data untuk mengolah data kuanti atau kuali dengan SPSS, R, Python, SmartPLS atau Excel.", 
+    durasi: "4-7 hari", 
+    harga: "Rp 500.000",
     kategori: "Data",
     badge: ""
   },
   { 
-    nama: "Proofreading & Editing", 
-    desc: "Perbaiki tata bahasa, ejaan, format sitasi, dan konsistensi penulisan sesuai pedoman kampusmu.", 
-    durasi: "1-3 hari", 
-    harga: "Rp 150.000",
-    kategori: "Bahasa",
-    badge: ""
-  },
-  { 
-    nama: "Publikasi Jurnal", 
-    desc: "Bantu pilih jurnal yang tepat, format naskah, submit, sampai revisi dari reviewer.", 
-    durasi: "1-3 bulan", 
-    harga: "Rp 1.000.000",
-    kategori: "Publikasi",
-    badge: ""
-  },
-  { 
-    nama: "Konsultasi Beasiswa", 
-    desc: "Persiapkan esai, CV, dan strategi aplikasi beasiswa dalam dan luar negeri.", 
-    durasi: "1-4 minggu", 
-    harga: "Rp 400.000",
-    kategori: "Beasiswa",
-    badge: ""
-  },
-  { 
     nama: "Cek Plagiarisme", 
-    desc: "Pengecekan kemiripan naskah dengan Turnitin. Dapatkan laporan resmi dan saran perbaikan.", 
-    durasi: "1 hari", 
-    harga: "Rp 50.000",
+    desc: "Pengecekan kemiripan naskah dengan Turnitin, dapatkan laporan resmi dan saran perbaikan.", 
+    durasi: "2-3 hari", 
+    harga: "Rp 100.000",
     kategori: "Bahasa",
     badge: ""
   }
 ];
 
 const keunggulan = [
-  { icon: "⏳", title: "Konsultan Berpengalaman", desc: "Tim kami adalah akademisi dan praktisi yang paham alur kampus." },
-  { icon: "💰", title: "Harga Transparan", desc: "Semua harga jelas di depan. Tidak ada biaya tersembunyi." },
+  { icon: "⏳", title: "Konsultan Berpengalaman", desc: "" },
+  { icon: "💰", title: "Harga Transparan", desc: "" },
   { icon: "⚡", title: "Respon Cepat", desc: "Dibalas maksimal 1x24 jam, biasanya kurang dari 1 jam." },
-  { icon: "🔒", title: "100% Rahasia", desc: "Data dan identitasmu aman bersama kami. Dijamin kerahasiaannya." }
+  { icon: "🔒", title: "100% Rahasia", desc: "" }
 ];
 ---
 
@@ -83,9 +59,9 @@ const keunggulan = [
   <main>
     <!-- HERO SECTION -->
     <section class="hero-layanan">
-      <span class="pill">🚀 8 Layanan Tersedia</span>
+      <span class="pill">🚀 5 Paket Harga Tersedia</span>
       <h1>Layanan Konsultasi Mahasiswa</h1>
-      <p>Pilih layanan sesuai kebutuhanmu. Semua paket sudah termasuk konsultasi awal <strong>gratis</strong>.</p>
+      <p>Pilih paket sesuai kebutuhanmu. Semua paket sudah termasuk konsultasi awal.</p>
       
       <div class="stats-bar">
         <span>⭐ 4.9/5 Rating</span>
@@ -127,7 +103,7 @@ const keunggulan = [
           <div class="card-keunggulan">
             <div class="icon-box">{item.icon}</div>
             <h3>{item.title}</h3>
-            <p>{item.desc}</p>
+            {item.desc && <p>{item.desc}</p>}
           </div>
         ))}
       </div>

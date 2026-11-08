@@ -5,10 +5,10 @@ const alur = [
   {
     no: "01",
     icon: "💬",
-    title: "Konsultasi Gratis",
+    title: "Konsultasi Cepat",
     desc: "Ceritakan kondisimu lewat WhatsApp atau isi form. Mau itu baru mau mulai, stuck di bab 3, atau bingung cari judul — kami dengar dulu, bukan langsung jualan.",
     detail: [
-      "Tanpa biaya, tanpa komitmen",
+      "Konsultasi cepat untuk memetakan kebutuhanmu",
       "Respon maksimal 1x24 jam",
       "Bisa via chat, voice note, atau video call",
       "Khusus UT: kami paham sistem tutorial online & TAP"
@@ -18,22 +18,8 @@ const alur = [
   },
   {
     no: "02",
-    icon: "🎯",
-    title: "Pemetaan Kebutuhan",
-    desc: "Kami bantu petakan masalahmu: butuh bimbingan penuh dari nol, atau cuma butuh second opinion di bagian tertentu? Semua kita diskusikan terbuka.",
-    detail: [
-      "Analisis kondisi & deadline kamu",
-      "Rekomendasi layanan yang paling cocok",
-      "Estimasi biaya & durasi yang jelas",
-      "Tidak ada paksaan untuk lanjut"
-    ],
-    cta: "Lihat Layanan Kami",
-    link: "/layanan"
-  },
-  {
-    no: "03",
     icon: "📦",
-    title: "Pilih Paket & Jadwal",
+    title: "Pilih Paket",
     desc: "Kamu yang putuskan. Kami sediakan beberapa paket dengan harga transparan. Cocok untuk mahasiswa yang kuliah sambil kerja atau belajar jarak jauh.",
     detail: [
       "Pilihan paket Basic, Reguler, atau Premium",
@@ -45,7 +31,7 @@ const alur = [
     link: "/harga"
   },
   {
-    no: "04",
+    no: "03",
     icon: "🚀",
     title: "Proses Pendampingan",
     desc: "Ini bagian intinya. Kamu dibimbing 1-on-1 oleh konsultan yang paham alur kampus. Progres dipantau, komunikasi lancar via WhatsApp atau Zoom.",
@@ -59,9 +45,9 @@ const alur = [
     link: "https://wa.me/62895323665266"
   },
   {
-    no: "05",
+    no: "04",
     icon: "🎓",
-    title: "Siap Sidang & Selesai",
+    title: "Selesai",
     desc: "Kamu dapat hasil akhir yang rapi, simulasi sidang, dan dukungan sampai benar-benar selesai. Termasuk garansi revisi setelah sidang.",
     detail: [
       "Simulasi sidang dengan pertanyaan dosen",
@@ -69,7 +55,7 @@ const alur = [
       "Garansi revisi setelah sidang",
       "Dukungan sampai kamu lulus"
     ],
-    cta: "Konsultasi Gratis Dulu",
+    cta: "Konsultasi Cepat Dulu",
     link: "https://wa.me/62895323665266"
   }
 ];
@@ -85,11 +71,11 @@ const faqAlur = [
   },
   {
     q: "Berapa lama proses pendampingan?",
-    a: "Tergantung kebutuhan. Untuk bimbingan penuh (dari judul sampai sidang), rata-rata 3–6 bulan. Untuk layanan spesifik seperti analisis data atau proofreading, bisa 1–14 hari."
+    a: "Tergantung kebutuhan. Untuk bimbingan penuh (dari judul sampai sidang), rata-rata 3–6 bulan. Untuk layanan lain seperti konsultasi, latihan sidang, atau analisis data, bisa 1–7 hari."
   },
   {
     q: "Apakah saya harus bayar di awal?",
-    a: "Konsultasi pertama 100% gratis. Kalau lanjut, sistemnya DP 50% di awal, pelunasan setelah pekerjaan selesai. Jadi kamu tidak bayar penuh di depan."
+    a: "Kamu bisa konsultasi cepat dulu untuk memetakan kebutuhan. Kalau lanjut, sistemnya DP 50% di awal, pelunasan setelah pekerjaan selesai. Jadi kamu tidak bayar penuh di depan."
   },
   {
     q: "Apakah bisa ganti konsultan kalau tidak cocok?",
@@ -104,10 +90,10 @@ const faqAlur = [
     <section class="hero-alur">
       <span class="pill">🔄 Alur Kerja Sama</span>
       <h1>Simpel, Transparan,<br /><span class="highlight">Tanpa Drama.</span></h1>
-      <p>Lima langkah mudah dari konsultasi gratis sampai kamu siap sidang. Cocok untuk mahasiswa UT, kuliah sambil kerja, atau siapa pun yang butuh pendampingan.</p>
+      <p>Empat langkah mudah dari konsultasi cepat sampai urusanmu selesai. Cocok untuk mahasiswa UT, kuliah sambil kerja, atau siapa pun yang butuh pendampingan.</p>
       
       <div class="hero-buttons">
-        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Mulai Konsultasi Gratis</a>
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Mulai Konsultasi Cepat</a>
         <a href="/harga" class="btn-secondary">Lihat Harga Dulu</a>
       </div>
 
@@ -135,7 +121,7 @@ const faqAlur = [
       </div>
 
       <div class="timeline">
-        {alur.map((step, index) => (
+        {alur.map((step) => (
           <div class="timeline-item">
             <div class="timeline-marker">
               <span class="marker-icon">{step.icon}</span>
@@ -210,7 +196,7 @@ const faqAlur = [
     <!-- CTA AKHIR -->
     <section class="cta-akhir">
       <h2>Masih Bingung Mulai dari Mana?</h2>
-      <p>Konsultasi pertama gratis, tanpa paksaan. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <p>Konsultasi cepat, tanpa paksaan. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
       <div class="cta-buttons">
         <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Chat WhatsApp Sekarang</a>
         <a href="/kontak" class="btn-secondary">Isi Form Kontak</a>

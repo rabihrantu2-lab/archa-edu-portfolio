@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const title = "FAQ - Archa Edu Academy";
-const description = "Pertanyaan yang sering ditanyakan tentang layanan konsultasi skripsi, tesis, dan bimbingan akademik.";
+const description = "Pertanyaan yang sering ditanyakan tentang layanan bimbingan tugas akhir, tugas semester, publikasi jurnal, dan pencetakan.";
 
 const faqData = [
   // ===== UMUM =====
@@ -13,21 +13,21 @@ const faqData = [
   { kategori: "Umum", q: "Kampus saya di luar Jawa, tetap bisa?", a: "Tentu! Justru banyak klien kami dari Sumatera, Kalimantan, Sulawesi, bahkan luar negeri. Selama ada koneksi internet, kita bisa kerja sama dengan lancar." },
 
   // ===== LAYANAN =====
-  { kategori: "Layanan", q: "Layanan apa saja yang tersedia?", a: "Ada 8 layanan utama: (1) Konsultasi Skripsi & Tesis, (2) Bimbingan Tugas Akhir/TAP, (3) Latihan Sidang, (4) Analisis Data (SPSS, R, Python, SmartPLS, Excel), (5) Proofreading & Editing, (6) Publikasi Jurnal, (7) Konsultasi Beasiswa, dan (8) Cek Plagiarisme." },
-  { kategori: "Layanan", q: "Bedanya Bimbingan Tugas Akhir dan Konsultasi Skripsi apa?", a: "Konsultasi Skripsi & Tesis itu pendampingan menyeluruh dari judul sampai sidang (3–6 bulan). Sedangkan Bimbingan Tugas Akhir itu fokus di tahap tertentu aja — misalnya kamu cuma butuh arahan di bab 3 atau bab 4." },
+  { kategori: "Layanan", q: "Layanan apa saja yang tersedia?", a: "Kami memiliki 6 layanan utama: Bimbingan Tugas Akhir, Bimbingan Tugas Semester, Proofreading & Editing, Publikasi Jurnal, Pencetakan, dan Layanan Pribadi Kampus. Semuanya dirangkum ke dalam 5 paket harga di halaman Layanan." },
+  { kategori: "Layanan", q: "Bedanya Bimbingan Tugas Akhir dan Konsultasi itu apa?", a: "Bimbingan Tugas Akhir itu pendampingan menyeluruh dari judul sampai selesai (3–6 bulan). Sedangkan Konsultasi (Karil, Metopen, Proyek, BTA & Tesis) fokus menyelesaikan masalah tertentu dan mengarahkan langkah berikutnya, biasanya 1–2 hari." },
   { kategori: "Layanan", q: "Analisis data pakai software apa?", a: "Tergantung kebutuhanmu. Kami bisa bantu SPSS, SmartPLS, AMOS, R, Python, Excel, dan EViews. Untuk kualitatif, kami bantu NVivo atau analisis tematik manual." },
-  { kategori: "Layanan", q: "Apakah bisa bantu pilih judul skripsi?", a: "Bisa, dan ini termasuk dalam konsultasi gratis. Kami bantu brainstorming 3–5 judul yang relevan dengan jurusanmu, lengkap dengan alasan kenapa judul itu cocok." },
+  { kategori: "Layanan", q: "Apakah bisa bantu pilih judul skripsi?", a: "Bisa, dan ini termasuk dalam konsultasi cepat. Kami bantu brainstorming 3–5 judul yang relevan dengan jurusanmu, lengkap dengan alasan kenapa judul itu cocok." },
   { kategori: "Layanan", q: "Bisa bantu submit ke jurnal Scopus?", a: "Bisa. Kami bantu dari pemilihan jurnal yang sesuai bidangmu (Q1–Q4), format naskah sesuai template jurnal, submit, sampai revisi dari reviewer. Untuk jurnal Sinta (S1–S6) juga bisa." },
 
   // ===== PROSES =====
-  { kategori: "Proses", q: "Bagaimana alur kerjanya?", a: "Simpel, 5 langkah: (1) Konsultasi gratis via WA, (2) Pemetaan kebutuhan, (3) Pilih paket & jadwal, (4) Proses pendampingan, (5) Siap sidang & selesai." },
-  { kategori: "Proses", q: "Berapa lama durasi pendampingan?", a: "Tergantung jenis layanannya. Bimbingan penuh (judul sampai sidang): 3–6 bulan. Analisis data: 3–14 hari. Proofreading: 1–3 hari. Publikasi jurnal: 1–3 bulan. Latihan sidang: 1–2 hari." },
+  { kategori: "Proses", q: "Bagaimana alur kerjanya?", a: "Simpel, 4 langkah: (1) Konsultasi cepat via WA, (2) Pilih paket, (3) Proses pendampingan, (4) Selesai." },
+  { kategori: "Proses", q: "Berapa lama durasi pendampingan?", a: "Tergantung paketnya. Bimbingan Tugas Akhir: 3–6 bulan. Konsultasi Karil, Metopen, Proyek, BTA & Tesis: 1–2 hari. Latihan sidang/persentasi: 1–2 hari. Parafrase, Analisis data & Turnitin: 4–7 hari. Cek Plagiarisme: 2–3 hari." },
   { kategori: "Proses", q: "Saya kuliah sambil kerja, jadwalnya padat. Bisa?", a: "Justru itu spesialisasi kami! Sesi bisa dijadwalkan sore, malam, atau weekend. Komunikasi utama via WhatsApp dan Zoom, jadi kamu bisa tanya kapan saja." },
   { kategori: "Proses", q: "Apakah konsultan bisa diganti kalau tidak cocok?", a: "Bisa. Kami ingin kamu nyaman karena prosesnya butuh keterbukaan. Cukup info ke admin, kami akan carikan konsultan lain yang lebih cocok dengan gaya belajarmu." },
   { kategori: "Proses", q: "Bagaimana cara pantau progresnya?", a: "Setiap klien dapat akses ke grup WA khusus bareng konsultan. Ada checklist progres, catatan revisi tiap bab, dan target per tahap. Jadi kamu tahu persis sudah sampai mana." },
 
   // ===== HARGA =====
-  { kategori: "Harga", q: "Apakah konsultasi pertama benar-benar gratis?", a: "100% gratis, tanpa syarat. Kamu bisa cerita dulu soal kondisimu, dan kami kasih arahan awal. Kalau belum cocok atau belum siap lanjut, nggak masalah — nggak ada paksaan." },
+  { kategori: "Harga", q: "Bagaimana cara memulai konsultasi?", a: "Cukup chat kami via WhatsApp. Kamu bisa cerita dulu soal kondisimu, dan kami kasih arahan awal. Kalau belum cocok atau belum siap lanjut, nggak masalah — nggak ada paksaan." },
   { kategori: "Harga", q: "Berapa kisaran harganya?", a: "Bervariasi tergantung layanan dan tingkat kesulitan. Detail lengkapnya ada di halaman Harga. Yang pasti, semua harga transparan di depan — nggak ada biaya tersembunyi." },
   { kategori: "Harga", q: "Bagaimana sistem pembayarannya?", a: "DP 50% di awal, pelunasan setelah pekerjaan selesai. Jadi kamu nggak bayar penuh di depan. Bisa transfer bank, e-wallet (GoPay, OVO, Dana, ShopeePay), atau QRIS." },
   { kategori: "Harga", q: "Apakah bisa dicicil?", a: "Untuk paket Reguler dan Premium, bisa dicicil 2–3 kali sesuai kesepakatan. Silakan diskusikan dengan admin saat konsultasi awal." },
@@ -57,7 +57,7 @@ const kategoriList = [
     <section class="hero-faq">
       <span class="pill">❓ Pusat Bantuan</span>
       <h1>Ada Pertanyaan?<br /><span class="highlight">Kami Jawab.</span></h1>
-      <p>Kumpulan pertanyaan yang paling sering ditanyakan mahasiswa. Kalau nggak ketemu jawabannya, langsung chat kami aja — gratis!</p>
+      <p>Kumpulan pertanyaan yang paling sering ditanyakan mahasiswa. Kalau nggak ketemu jawabannya, langsung chat kami aja.</p>
 
       <!-- SEARCH BAR -->
       <div class="search-wrapper">
@@ -70,7 +70,7 @@ const kategoriList = [
         />
       </div>
 
-      <p class="search-hint">💡 Tips: coba ketik <strong>"UT"</strong>, <strong>"gratis"</strong>, atau <strong>"bayar"</strong></p>
+      <p class="search-hint">💡 Tips: coba ketik <strong>"UT"</strong>, <strong>"harga"</strong>, atau <strong>"bayar"</strong></p>
     </section>
 
     <!-- FILTER KATEGORI -->
@@ -129,7 +129,7 @@ const kategoriList = [
         <a href="https://wa.me/62895323665266" target="_blank" class="card-bantuan">
           <div class="icon-bantuan">💬</div>
           <h3>Chat WhatsApp</h3>
-          <p>Respon cepat, biasanya kurang dari 1 jam. Tanya apa saja, gratis.</p>
+          <p>Respon cepat, biasanya kurang dari 1 jam. Tanya apa saja.</p>
           <span class="link-bantuan">Chat Sekarang &rarr;</span>
         </a>
         <a href="/kontak" class="card-bantuan">
@@ -150,9 +150,9 @@ const kategoriList = [
     <!-- CTA AKHIR -->
     <section class="cta-akhir">
       <h2>Udah Jelas Kan?</h2>
-      <p>Sekarang tinggal mulai. Konsultasi pertama gratis, tanpa komitmen. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <p>Sekarang tinggal mulai. Konsultasi cepat, tanpa komitmen. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Mulai Konsultasi Gratis</a>
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Mulai Konsultasi Cepat</a>
         <a href="/harga" class="btn-secondary">Lihat Harga Dulu</a>
       </div>
     </section>

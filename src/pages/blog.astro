@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { artikelList, kategoriList } from '../data/artikel.js';
 
 const title = "Artikel & Panduan Skripsi - Archa Edu Academy";
-const description = "Tips, panduan, dan artikel seputar skripsi, tesis, analisis data, dan publikasi jurnal untuk mahasiswa Indonesia.";
+const description = "Tips, panduan, dan artikel seputar tugas akhir, skripsi, analisis data, dan publikasi jurnal untuk mahasiswa Indonesia.";
 
 const featured = artikelList.find(a => a.unggulan) || artikelList[0];
 const others = artikelList.filter(a => a.slug !== featured.slug);
@@ -100,7 +100,7 @@ const others = artikelList.filter(a => a.slug !== featured.slug);
       <div class="newsletter-box">
         <div class="newsletter-icon">📬</div>
         <h2>Dapat Tips Skripsi Tiap Minggu</h2>
-        <p>Gratis, tanpa spam. Cuma tips praktis dan update seputar dunia kampus yang bisa langsung kamu pakai.</p>
+        <p>Tanpa spam. Cuma tips praktis dan update seputar dunia kampus yang bisa langsung kamu pakai.</p>
         <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih! Fitur newsletter segera hadir.');">
           <input type="email" placeholder="email@kamu.com" required />
           <button type="submit">Subscribe</button>
@@ -111,9 +111,9 @@ const others = artikelList.filter(a => a.slug !== featured.slug);
     <!-- CTA AKHIR -->
     <section class="cta-akhir">
       <h2>Butuh Bantuan Lebih dari Sekadar Baca Artikel?</h2>
-      <p>Konsultasi pertama gratis. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
+      <p>Konsultasi cepat. Ceritakan kondisimu, kami bantu petakan langkah berikutnya.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Gratis via WA</a>
+        <a href="https://wa.me/62895323665266" class="btn-primary" target="_blank">Konsultasi Cepat via WA</a>
         <a href="/layanan" class="btn-secondary">Lihat Layanan</a>
       </div>
     </section>
