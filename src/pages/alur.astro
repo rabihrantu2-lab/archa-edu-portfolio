@@ -127,7 +127,7 @@ const faqAlur = [
               <span class="marker-icon">{step.icon}</span>
             </div>
             <div class="timeline-content">
-              <div class="step-header">
+              <div class="step-header" data-no={step.no}>
                 <span class="step-number">Langkah {step.no}</span>
                 <h3>{step.title}</h3>
               </div>
@@ -285,6 +285,7 @@ const faqAlur = [
     margin-bottom: 3rem;
   }
   .section-header h2 {
+    font-weight: 700;
     font-size: 2.2rem;
     color: var(--text-main);
     margin-bottom: 0.5rem;
@@ -332,20 +333,38 @@ const faqAlur = [
     font-size: 1.5rem;
   }
   .timeline-content {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(16,28,41,.06);
     flex: 1;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 1.75rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 28px 28px 28px 28px;
+    transition: transform 0.25s, box-shadow 0.25s;
   }
   .timeline-content:hover {
-    transform: translateX(5px);
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px -8px rgba(16,28,41,.18);
   }
   .step-header {
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
   }
+  .step-header::after {
+    content: attr(data-no);
+    position: absolute;
+    right: -4px;
+    top: -22px;
+    font-size: 6.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--accent-color);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  .step-desc, .step-detail, .btn-step { position: relative; z-index: 1; }
   .step-number {
     font-size: 0.75rem;
     font-weight: bold;
@@ -420,10 +439,12 @@ const faqAlur = [
     border-radius: 12px;
     text-align: center;
     border: 1px solid var(--border-color);
-    transition: transform 0.2s;
+    box-shadow: 0 1px 2px rgba(16,28,41,.06);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
   .card-spesialisasi:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 10px 24px -8px rgba(16,28,41,.18);
+    transform: translateY(-3px);
   }
   .icon-box {
     font-size: 2.5rem;
@@ -449,11 +470,12 @@ const faqAlur = [
   .faq-item {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 1rem;
-    padding: 1rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     cursor: pointer;
-    transition: border-color 0.3s;
+    box-shadow: 0 1px 2px rgba(16,28,41,.06);
+    transition: border-color 0.3s, box-shadow 0.3s;
   }
   .faq-item[open] {
     border-color: var(--accent-color);
