@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import TeamSection from '../components/TeamSection.astro';
 import PricingSection from '../components/PricingSection.astro';
 import { whatsappUrl } from '../data/academy';
-import { ShieldCheck, Users, CalendarDays } from '@lucide/astro';
+import { ShieldCheck, Users, CalendarDays, TriangleAlert } from '@lucide/astro';
 
 const title = "Archa Edu Academy - Bimbingan Tugas Akhir, Tugas Semester & Publikasi Jurnal";
 const description = "Bimbingan tugas akhir, tugas semester, proofreading, publikasi jurnal, dan pencetakan. Konsultan berpengalaman dengan harga transparan.";
@@ -15,6 +15,15 @@ const fitur = [
   { nama: "Publikasi Jurnal", desc: "Di bantu pemilihan jurnal, Format naskah, Submit, Sampai revisi reviewer." },
   { nama: "Pencetakan", desc: "Kami tersedia layanan bimbingan perihal pencetakkan buku skripsi, jurnal, cerita dll." },
   { nama: "Layanan Pribadi Kampus", desc: "Mari tanyakan apa yang ingin kamu sampaikan." }
+];
+
+const masalah = [
+  "Semester sudah tua namun kuliah belum terselesaikan.",
+  "Deadline semakin dekat, Tugas menumpuk.",
+  "Dosen pembimbing sibuk, Susah di ajak komunikasi.",
+  "Tidak ada waktu luang namun tugas praktik menanti.",
+  "Ingin melanjutkan kuliah tapi bentrok sama kerjaan.",
+  "Sudah maksimal tapi nilai tetep rendah."
 ];
 
 const alur = [
@@ -39,14 +48,14 @@ const testimoni = [
       <div class="hero-text">
         <span class="eyebrow"><span></span> PARTNER PERJALANAN AKADEMIKMU</span>
         <h1>Pendampingan akademik<br /><span class="highlight">yang lebih personal.</span></h1>
-        <p>Pendampingan 1-on-1 untuk tugas akhir, tugas semester, publikasi jurnal, dan pencetakan. Konsultasi cepat, harga jelas di depan, tidak ada biaya tersembunyi.</p>
+        <p>Pendampingan 1 on 1 untuk skripsi, tesis, analisis data, karya ilmiah dan publikasi jurnal. Konsultasi terlebih dahulu, Masalah ditemukan dan Terselesaikan.</p>
         <div class="hero-buttons">
           <a href={whatsappUrl()} class="btn-primary" target="_blank" rel="noopener noreferrer">Konsultasi Cepat via WA &rarr;</a>
           <a href="/layanan" class="btn-secondary">Lihat Layanan</a>
         </div>
         <div class="trust-bar">
           <span><Users size={16} aria-hidden="true" /> Konsultasi langsung</span>
-          <span><ShieldCheck size={16} aria-hidden="true" /> Harga transparan</span>
+          <span><ShieldCheck size={16} aria-hidden="true" /> Masalah terselesaikan</span>
           <span><CalendarDays size={16} aria-hidden="true" /> 4 tahun mendampingi</span>
         </div>
       </div>
@@ -73,12 +82,12 @@ const testimoni = [
         <h2>Kalau Kamu Mengalami Ini, Kamu Tidak Sendirian</h2>
       </div>
       <div class="masalah-grid">
-        <div class="masalah-item">Sudah 3 bulan tapi judul masih belum acc</div>
-        <div class="masalah-item">Data sudah terkumpul, bingung mau diolah pakai apa</div>
-        <div class="masalah-item">Dosen pembimbing sibuk, susah diajak diskusi</div>
-        <div class="masalah-item">Revisi terus tapi tidak tahu salahnya di mana</div>
-        <div class="masalah-item">Deadline sidang makin dekat, progres masih 30%</div>
-        <div class="masalah-item">Butuh publikasi jurnal tapi tidak paham alurnya</div>
+        {masalah.map((teks) => (
+          <div class="masalah-item">
+            <span class="masalah-icon"><TriangleAlert size={20} aria-hidden="true" /></span>
+            <p>{teks}</p>
+          </div>
+        ))}
       </div>
       <p class="masalah-penutup">Kami ada untuk membantu kamu melewati bagian-bagian yang paling membingungkan.</p>
     </section>
@@ -198,7 +207,7 @@ const testimoni = [
 
   /* MASALAH */
   .masalah-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-  .masalah-item { background: var(--card-bg); padding: 1rem 1.25rem; border-left: 4px solid var(--accent-color); border-radius: 8px; color: var(--text-muted); font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+  .masalah-item { color: var(--text-muted); }
   .masalah-penutup { text-align: center; color: var(--text-muted); font-style: italic; }
 
   /* FITUR */

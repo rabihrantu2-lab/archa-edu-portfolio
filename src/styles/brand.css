@@ -56,18 +56,22 @@ body .board-heading h2 { font-size:30px; margin:8px 0 0; line-height:1.2; }
 .board-caption { display:block; text-align:center; margin-top:18px; color:var(--text-muted); font-size:9px; letter-spacing:1.4px; }
 body .section-container { max-width:1180px; padding:64px 0; }
 body .bg-alt { background:transparent; border-radius:0; margin:0 auto; border-top:1px solid var(--border-color); }
-body .section-header { text-align:left; max-width:720px; margin-bottom:32px; }
-body .section-header h2 { font-size:clamp(26px,3vw,36px); margin:12px 0; }
-body .section-header p { font-size:15px; }
+body .section-header { text-align:left; max-width:720px; margin-bottom:40px; }
+body .section-header h2 { font-size:clamp(28px,3vw,36px); font-weight:700; margin:12px 0; }
+body .section-header p { font-size:16px; color:var(--text-muted); }
 body .pill { background:transparent; color:var(--accent-color); padding:0; border-radius:0; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:0; }
-body .masalah-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 32px; }
-body .masalah-item { background:transparent; border:0; border-bottom:1px solid var(--border-color); border-radius:0; box-shadow:none; padding:20px 0; font-size:14px; display:flex; align-items:start; gap:12px; }
-body .masalah-item:before { content:'↗'; color:var(--accent-color); }
-body .masalah-penutup { text-align:left; font-style:normal; font-size:13px; }
-body .grid-fitur { grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-body .card-fitur { background:var(--card-bg); padding:28px; border-radius:10px; display:flex; flex-direction:column; }
-body .card-fitur h3 { margin:20px 0 12px; font-size:20px; max-width:240px; }
-body .card-fitur p { font-size:14px; }
+body .masalah-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-bottom:32px; }
+body .masalah-item { background:var(--card-bg); border:1px solid var(--border-color); border-radius:12px; box-shadow:0 1px 2px rgba(16,28,41,.06); padding:24px; font-size:15px; display:flex; flex-direction:column; align-items:flex-start; gap:16px; transition:box-shadow .25s, transform .25s, border-color .25s; }
+body .masalah-item:hover { box-shadow:0 10px 24px -8px rgba(16,28,41,.18); transform:translateY(-3px); border-color:#f5c9a8; }
+body .masalah-item:before { content:none; }
+body .masalah-item p { margin:0; color:var(--text-main); line-height:1.6; }
+body .masalah-icon { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px; background:rgba(234,88,12,.12); color:#ea580c; }
+body .masalah-penutup { text-align:left; font-style:normal; font-size:14px; }
+body .grid-fitur { grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+body .card-fitur { background:var(--card-bg); padding:28px; border-radius:12px; display:flex; flex-direction:column; box-shadow:0 1px 2px rgba(16,28,41,.06); transition:box-shadow .25s, transform .25s; }
+body .card-fitur:hover { box-shadow:0 10px 24px -8px rgba(16,28,41,.18); transform:translateY(-3px); }
+body .card-fitur h3 { margin:20px 0 12px; font-size:20px; font-weight:700; max-width:260px; }
+body .card-fitur p { font-size:15px; }
 body .card-fitur .link-detail { margin-top:auto; padding-top:16px; }
 .service-number { color:var(--accent-color); font-size:12px; font-weight:600; }
 body .badge, body .badge-hot { background:var(--ae-soft); color:var(--accent-hover); border-radius:4px; font-size:9px; }
